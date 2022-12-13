@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Button, Flex, Grid, Input, Text } from "@chakra-ui/react"
+import { Box, Button, Flex, Grid, Image, Input, Text } from "@chakra-ui/react"
 
 
 const Footer = () => {
@@ -30,8 +30,8 @@ const Footer = () => {
       </Box>
   </Box>
 {/* *****************************************************footer Section 2 end********************************************************** */}
-  <Box color="#0071c2" w='80%' m="auto" mt="15px">
-<Grid fontSize="14px" templateColumns={{ base: "repeat(1, 1fr)",sm:"repeat(2, 1fr)",md:"repeat(3, 1fr)", lg: "repeat(5, 1fr)" }} gap={6}>
+  <Box color="#0071c2" w='80%' m="auto" mt="15px" mb="15px">
+<Grid fontSize="14px" templateColumns={{sm:"repeat(1, 1fr)",md:"repeat(3, 1fr)", lg: "repeat(5, 1fr)" }} gap={6}>
 <Box cursor="pointer" >
   <Text>Countries</Text>
   <Text>Regions</Text>
@@ -80,6 +80,27 @@ const Footer = () => {
 </Grid>
   </Box>
 {/* *****************************************************footer Section 3 end********************************************************** */}
+
+<Box w='100%'  p={2} borderTop="1px solid" >
+  <Box m="auto" w="10%"><Button colorScheme='none'  color="black" >Extranet login</Button></Box>
+</Box>
+{/* *****************************************************footer Section 4 end********************************************************** */}
+
+<Box w="70%" m="auto" >
+  <Box><Text textAlign="center" fontSize='xs' color="gray">Booking.com is part of Booking Holdings Inc., the world leader in online travel and related services.</Text></Box>
+
+<Grid  templateColumns={{sm:"repeat(1, 1fr)",md:"repeat(3, 1fr)", lg: "repeat(6, 1fr)" }} >
+  <Image src="https://cf.bstatic.com/static/img/tfl/group_logos/logo_booking/27c8d1832de6a3123b6ee45b59ae2f81b0d9d0d0.png" alt='Booking.com' />
+  <Image src="https://cf.bstatic.com/static/img/tfl/group_logos/logo_priceline/f80e129541f2a952d470df2447373390f3dd4e44.png" alt='Booking.com' />
+  <Image src="https://cf.bstatic.com/static/img/tfl/group_logos/logo_kayak/83ef7122074473a6566094e957ff834badb58ce6.png" alt='Booking.com' />
+  <Image src="https://cf.bstatic.com/static/img/tfl/group_logos/logo_agoda/1c9191b6a3651bf030e41e99a153b64f449845ed.png" alt='Booking.com' />
+  <Image src="https://cf.bstatic.com/static/img/tfl/group_logos/logo_rentalcars/6bc5ec89d870111592a378bbe7a2086f0b01abc4.png" alt='Booking.com' />
+  <Image src="https://cf.bstatic.com/static/img/tfl/group_logos/logo_opentable/a4b50503eda6c15773d6e61c238230eb42fb050d.png" alt='Booking.com' />
+</Grid>
+
+</Box>
+
+{/* *****************************************************footer Section 5 end********************************************************** */}
     </Box>
   )
 }
