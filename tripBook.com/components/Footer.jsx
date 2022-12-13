@@ -11,7 +11,7 @@ const Footer = () => {
      <Text fontSize='3xl' lineHeight="33px" textAlign="center" color="white" fontWeight="300">Save time, save money!</Text>
      <Text fontSize='1xl' textAlign="center" mb="10px" color="gray.300">Sign up and we'll send the best deals to you</Text>
      <Grid templateColumns={{ sm:"repeat(1, 1fr)" ,lg:"repeat(2, 1fr)" }} m="auto" p={4} gap="10px" >
-     <Input borderRadius="3px" ml={{ sm: "0px",lg:"10rem" }} variant='outline' bg="white" placeholder='Your email' />
+     <Input color="black" borderRadius="3px" ml={{ sm: "0px",lg:"10rem" }} variant='outline' bg="white" placeholder='Your email' />
      <Button borderRadius="3px" m={{sm:"auto" , md:"auto" }}  ml={{lg:"10rem" }} colorScheme='messenger'>Subscribe</Button>
      </Grid>
       </Box>
@@ -59,7 +59,7 @@ const Footer = () => {
   <Text>ravel Communities</Text>
   <Text>Seasonal and holiday deals</Text>
 </Box>
-<Box>
+<Box cursor="pointer">
 <Text>Car hire</Text>
   <Text>Flight finder</Text>
   <Text>Restaurant reservations</Text>
