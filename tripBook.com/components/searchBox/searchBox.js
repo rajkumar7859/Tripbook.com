@@ -4,7 +4,7 @@ function searchBox() {
   return (
      <>
       <Box>
-        
+        comments
       </Box>
      </>
   )
