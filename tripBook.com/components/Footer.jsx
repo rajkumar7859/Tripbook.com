@@ -86,6 +86,7 @@ const Footer = () => {
 </Box>
 {/* *****************************************************footer Section 4 end********************************************************** */}
 
+{/* *****************************************************footer Section 5 start********************************************************** */}
 <Box w="70%" m="auto" >
   <Box><Text textAlign="center" fontSize='xs' color="gray">Booking.com is part of Booking Holdings Inc., the world leader in online travel and related services.</Text></Box>
 
