@@ -6,3 +6,25 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+.image_icon {
+  color: rgb(236, 55, 0);
+  opacity: .5;
+}
+
+.image_icon:hover {
+  cursor: pointer;
+  font-size: 24.2px;
+}
+
+.date_picker{
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.authlinks {
+  width: 60px;
+  height: 40px;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  border-radius: 3px;
+}
