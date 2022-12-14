@@ -4,7 +4,7 @@ import { Box, Button, Flex, Grid, Image, Input, Text } from "@chakra-ui/react"
 
 const Footer = () => {
   return (
-    <Box bg='#efefef'>
+    <Box bg='#efefef' pb="2rem" >
       {/* *****************************************************footer Section 1 start********************************************************** */}
     <Box bg='#00224f' w='100%' p="2rem" color='white'>
       <Box w='60%' m="auto" p={4} >
@@ -88,9 +88,9 @@ const Footer = () => {
 
 {/* *****************************************************footer Section 5 start********************************************************** */}
 <Box w="70%" m="auto" >
-  <Box><Text textAlign="center" fontSize='xs' color="gray">Booking.com is part of Booking Holdings Inc., the world leader in online travel and related services.</Text></Box>
+  <Box><Text textAlign="center" fontSize='xs' color="gray" mb="15px" >Booking.com is part of Booking Holdings Inc., the world leader in online travel and related services.</Text></Box>
 
-<Grid  templateColumns={{sm:"repeat(1, 1fr)",md:"repeat(3, 1fr)", lg: "repeat(6, 1fr)" }} >
+<Grid  templateColumns={{sm:"repeat(1, 1fr)",md:"repeat(3, 1fr)", lg: "repeat(6, 1fr)" }} cursor="pointer" >
   <Image src="https://cf.bstatic.com/static/img/tfl/group_logos/logo_booking/27c8d1832de6a3123b6ee45b59ae2f81b0d9d0d0.png" alt='Booking.com' />
   <Image src="https://cf.bstatic.com/static/img/tfl/group_logos/logo_priceline/f80e129541f2a952d470df2447373390f3dd4e44.png" alt='Booking.com' />
   <Image src="https://cf.bstatic.com/static/img/tfl/group_logos/logo_kayak/83ef7122074473a6566094e957ff834badb58ce6.png" alt='Booking.com' />
