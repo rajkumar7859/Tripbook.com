@@ -10,15 +10,30 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import { useRouter } from 'next/router';
 
 import { BsGithub } from "react-icons/bs";
+import axios from "axios";
 
 const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
 
-  console.log(name, email, password);
+  const reset = () => {
+    setName("");
+    setEmail("");
+    setPassword("");
+  }
+
+  const signupReq = async() => {
+     const res = await axios.post("http://localhost:3000/api/user/signup",{name, email, password});
+     console.log(res.data);
+     localStorage.setItem("SignupData", JSON.stringify(res.data.user));
+     reset();
+     router.push("/signin");
+  }
 
   return (
     <Box>
@@ -63,6 +78,7 @@ const Signup = () => {
             placeholder="Type in your password"
           />
           <Input
+            onClick={() => signupReq()}
             mb="15px"
             fontSize="14px"
             color="white"
