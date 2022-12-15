@@ -1,4 +1,4 @@
-import styles from "./navbar.module.css";
+import styles from "./Navbar.module.css";
 import Link from "next/link";
 import { QuestionIcon, Icon } from "@chakra-ui/icons";
 
@@ -24,7 +24,7 @@ function Navbar() {
         w="100%"
         color="white"
         height="auto"
-        bg="#004cb8"
+        bg="#003580"
       >
         <Box 
         // border="2px solid green"
@@ -67,11 +67,11 @@ function Navbar() {
                 List your property
               </Link>
 
-              <Link href="/regiter" className={styles.authLink}>
+              <Link href="/signup" className={styles.authLink}>
                 Register
               </Link>
 
-              <Link href="/login" className={styles.authLink}>
+              <Link href="/signin" className={styles.authLink}>
                 Sign in
               </Link>
             </HStack>
@@ -87,7 +87,7 @@ function Navbar() {
           // border="2px solid black" 
           className={styles.stackBox}>
             <HStack spacing="25px">
-              <Link href="#" className={styles.navRow2One}>
+              <Link href="/bgComponent" className={styles.navRow2One}>
                 <IoBedOutline className={styles.iconsStyles1} />
                 Stays
               </Link>
