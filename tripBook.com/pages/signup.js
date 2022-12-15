@@ -9,10 +9,17 @@ import {
   Heading,
   Flex,
 } from "@chakra-ui/react";
+import { useState } from "react";
 
 import { BsGithub } from "react-icons/bs";
 
 const Signup = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  console.log(name, email, password);
+
   return (
     <Box>
       <Box w="90%" m="auto">
@@ -29,9 +36,10 @@ const Signup = () => {
       <VStack m="30px auto 50px auto" w="350px" p="15px">
         <FormControl>
           <FormLabel color="blackAlpha.800" fontSize="14px">
-            First and last name
+            Name
           </FormLabel>
           <Input
+            onChange={({ target }) => setName(target.value)}
             mb="15px"
             type="text"
             placeholder="Type in your first and last name"
@@ -40,6 +48,7 @@ const Signup = () => {
             Email
           </FormLabel>
           <Input
+            onChange={({ target }) => setEmail(target.value)}
             mb="15px"
             type="email"
             placeholder="Type in your email address"
@@ -48,6 +57,7 @@ const Signup = () => {
             Password
           </FormLabel>
           <Input
+            onChange={({ target }) => setPassword(target.value)}
             mb="15px"
             type="password"
             placeholder="Type in your password"
