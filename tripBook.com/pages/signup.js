@@ -9,10 +9,32 @@ import {
   Heading,
   Flex,
 } from "@chakra-ui/react";
+import { useState } from "react";
+import { useRouter } from 'next/router';
 
 import { BsGithub } from "react-icons/bs";
+import axios from "axios";
 
 const Signup = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const router = useRouter();
+
+  const reset = () => {
+    setName("");
+    setEmail("");
+    setPassword("");
+  }
+
+  const signupReq = async() => {
+     const res = await axios.post("http://localhost:3000/api/user/signup",{name, email, password});
+     console.log(res.data);
+     localStorage.setItem("SignupData", JSON.stringify(res.data.user));
+     reset();
+     router.push("/signin");
+  }
+
   return (
     <Box>
       <Box w="90%" m="auto">
@@ -29,9 +51,10 @@ const Signup = () => {
       <VStack m="30px auto 50px auto" w="350px" p="15px">
         <FormControl>
           <FormLabel color="blackAlpha.800" fontSize="14px">
-            First and last name
+            Name
           </FormLabel>
           <Input
+            onChange={({ target }) => setName(target.value)}
             mb="15px"
             type="text"
             placeholder="Type in your first and last name"
@@ -40,6 +63,7 @@ const Signup = () => {
             Email
           </FormLabel>
           <Input
+            onChange={({ target }) => setEmail(target.value)}
             mb="15px"
             type="email"
             placeholder="Type in your email address"
@@ -48,11 +72,13 @@ const Signup = () => {
             Password
           </FormLabel>
           <Input
+            onChange={({ target }) => setPassword(target.value)}
             mb="15px"
             type="password"
             placeholder="Type in your password"
           />
           <Input
+            onClick={() => signupReq()}
             mb="15px"
             fontSize="14px"
             color="white"
