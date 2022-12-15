@@ -23,6 +23,14 @@ const HotelDetails = () => {
   </BreadcrumbItem>
 </Breadcrumb>
 </Box>
+<Box w="80%" m="auto" >
+<Grid>
+  <Box></Box>
+  <Box></Box>
+  <Box></Box>
+  <Box></Box>
+</Grid>
+</Box>
    </Box>
   )
 }
