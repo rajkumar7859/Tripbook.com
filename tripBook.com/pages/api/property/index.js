@@ -25,7 +25,7 @@ export default async function handler(req, res) {
               .skip((page - 1) * limit)
               .sort({ reviews: -1 });
 
-              break;
+            break;
           }
 
           case "rating": {
@@ -34,9 +34,17 @@ export default async function handler(req, res) {
               .skip((page - 1) * limit)
               .sort({ rating: order });
 
-              break;
+            break;
           }
 
+          case "price": {
+            properties = await PropertyModel.find({ city })
+              .limit(limit)
+              .skip((page - 1) * limit)
+              .sort({ price: order });
+
+            break;
+          }
 
           default:
             break;
