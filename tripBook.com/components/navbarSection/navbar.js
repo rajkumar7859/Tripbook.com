@@ -22,9 +22,15 @@ import {
 import DraverNav from "./draverNav";
 import { AuthContext } from "../../context/AuthContextProvider";
 import { useContext } from "react";
+import { useRouter } from "next/router";
 
 function Navbar() {
-  const { auth } = useContext(AuthContext);
+  const { auth, setAuth } = useContext(AuthContext);
+  const router = useRouter();
+  const SignoutReq = () => {
+    setAuth({ ...auth, isAuth: "" });
+    router.push("/");
+  };
   return (
     <>
       {/* <Box className={styles.dNav} ><DraverNav/></Box> */}
@@ -94,9 +100,12 @@ function Navbar() {
 
                 {auth ? (
                   <>
-                    <Link href="/signout" className={styles.authLink}>
+                    <Button
+                      onClick={() => SignoutReq()}
+                      className={styles.authLink}
+                    >
                       Sign out
-                    </Link>
+                    </Button>
                     <Avatar bg="yellow.400" name={auth.isReg.name} />
                   </>
                 ) : (
