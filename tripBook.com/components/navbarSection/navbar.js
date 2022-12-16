@@ -12,8 +12,11 @@ import {
 import { RiCommunityLine } from "react-icons/ri";
 import { Box, Button, Container, HStack, Image } from "@chakra-ui/react";
 import DraverNav from "./draverNav";
+import { AuthContext } from "../../context/AuthContextProvider";
+import { useContext } from "react";
 
 function Navbar() {
+  const { auth } = useContext(AuthContext);
   return (
     <>
       {/* <Box className={styles.dNav} ><DraverNav/></Box> */}
@@ -80,6 +83,19 @@ function Navbar() {
                 >
                   List your property
                 </Link>
+
+                {/* {
+                  auth.isReg ? (<Link href="/signup" className={styles.authLink}>
+                  Register
+                </Link>) : (null)
+                }
+
+                {
+                  auth.isAuth ? (<Link href="/signin" className={styles.authLink}>
+                  Sign in
+                </Link>) : (<Box>{auth.isReg.email}</Box>)
+                } */}
+                {console.log(auth)}
 
                 <Link href="/signup" className={styles.authLink}>
                   Register

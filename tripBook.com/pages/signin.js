@@ -11,33 +11,38 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { BsGithub } from "react-icons/bs";
+import { AuthContext } from "../context/AuthContextProvider";
 
 const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
+  const { auth, setAuth } = useContext(AuthContext);
 
   const reset = () => {
     setEmail("");
     setPassword("");
-  }
+  };
 
-  const signinReq = async() => {
-    const res = await axios.post("http://localhost:3000/api/user/signin",{email, password});
+  const signinReq = async () => {
+    const res = await axios.post("http://localhost:3000/api/user/signin", {
+      email,
+      password,
+    });
     console.log(res.data);
-    localStorage.setItem("SigninData", JSON.stringify(res.data));
-    reset();
-    router.push("/");
- }
+    if (res.data) {
+      setAuth({ ...auth, isAuth: res.data });
+      reset();
+      router.push("/");
+    }
+  };
 
   useEffect(() => {
-    let authData = JSON.parse(localStorage.getItem("SignupData")) || "";
-    if(authData !== "") setEmail(authData.email);
-  }, []);
+    if (auth.isReg)setEmail(auth.isReg.email);
+  }, [auth]);
 
-  console.log(email, password);
   return (
     <Box>
       <Box w="90%" m="auto">
