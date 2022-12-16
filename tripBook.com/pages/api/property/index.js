@@ -3,7 +3,7 @@ import { PropertyModel } from "../../../models/property.model";
 
 export default async function handler(req, res) {
   const { method } = req;
-  const { city, limit, page, sortBy, sortOrder } = req.query;
+  const { city, limit, page, sortBy, order } = req.query;
 
   try {
     await connect();
@@ -13,9 +13,34 @@ export default async function handler(req, res) {
 
   if (method === "GET") {
     try {
-      let properties = await PropertyModel.find();
-      if (city) {
-        properties = await PropertyModel.find({ city });
+      let properties = await PropertyModel.find({ city })
+        .limit(limit)
+        .skip((page - 1) * limit);
+
+      if (sortBy) {
+        switch (sortBy) {
+          case "reviews": {
+            properties = await PropertyModel.find({ city })
+              .limit(limit)
+              .skip((page - 1) * limit)
+              .sort({ reviews: -1 });
+
+              break;
+          }
+
+          case "rating": {
+            properties = await PropertyModel.find({ city })
+              .limit(limit)
+              .skip((page - 1) * limit)
+              .sort({ rating: order });
+
+              break;
+          }
+
+
+          default:
+            break;
+        }
       }
 
       res.status(200).send({ properties });
