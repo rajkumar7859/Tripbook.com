@@ -10,6 +10,7 @@ import {MdLocalAirport} from "react-icons/md";
 import {FaSwimmingPool} from "react-icons/fa";
 export default function Info(){
 
+
     return(
         <>
       {/* main css & one main Hstack */}
@@ -111,7 +112,7 @@ export default function Info(){
 </HStack>
 
                 </Stack>
-                {/* 2nd Stack */}
+                {/* 2nd Stack starts*/}
                 <Stack border={"0.1px solid gray"} w={"96%"}>
                     <VStack align={"start"} marginLeft={18} marginBottom={"19px"} >
                         <Text fontSize={"18px"} fontWeight={"bold"}>Good to know:</Text>
@@ -122,6 +123,7 @@ export default function Info(){
                         </Text>
                         </HStack>
                         <HStack>
+                            {/* react icons */}
                             <IoCheckmarkDone color="green"  fontSize={"22px"}/>
                         <Text >
                         Free cancellation until 23:59 on 13 December 2022
