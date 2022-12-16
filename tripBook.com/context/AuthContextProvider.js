@@ -12,8 +12,8 @@ const AuthContextProvider = ({ children }) => {
   const [auth, setAuth] = useState("");
 
   useEffect(() => {
-    setAuth(getInitialState) 
-  }, [])
+    setAuth(getInitialState);
+  },[]);
   
   useEffect(() => {
     localStorage.setItem("authData", JSON.stringify(auth));

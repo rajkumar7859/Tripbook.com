@@ -14,7 +14,7 @@ const verify = (req,res,next) => {
     } else {
       return res.status(403).send({
           "error": true,
-          "message": 'No token provided.'
+          "message": 'Please login'
       });
     }
   }

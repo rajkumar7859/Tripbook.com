@@ -10,7 +10,15 @@ import {
   IoFlowerOutline,
 } from "react-icons/io5";
 import { RiCommunityLine } from "react-icons/ri";
-import { Box, Button, Container, HStack, Image } from "@chakra-ui/react";
+import {
+  Avatar,
+  Box,
+  Button,
+  Container,
+  Flex,
+  HStack,
+  Image,
+} from "@chakra-ui/react";
 import DraverNav from "./draverNav";
 import { AuthContext } from "../../context/AuthContextProvider";
 import { useContext } from "react";
@@ -84,26 +92,24 @@ function Navbar() {
                   List your property
                 </Link>
 
-                {/* {
-                  auth.isReg ? (<Link href="/signup" className={styles.authLink}>
-                  Register
-                </Link>) : (null)
-                }
+                {auth ? (
+                  <>
+                    <Link href="/signout" className={styles.authLink}>
+                      Sign out
+                    </Link>
+                    <Avatar bg="yellow.400" name={auth.isReg.name} />
+                  </>
+                ) : (
+                  <>
+                    <Link href="/signup" className={styles.authLink}>
+                      Register
+                    </Link>
 
-                {
-                  auth.isAuth ? (<Link href="/signin" className={styles.authLink}>
-                  Sign in
-                </Link>) : (<Box>{auth.isReg.email}</Box>)
-                } */}
-                {console.log(auth)}
-
-                <Link href="/signup" className={styles.authLink}>
-                  Register
-                </Link>
-
-                <Link href="/signin" className={styles.authLink}>
-                  Sign in
-                </Link>
+                    <Link href="/signin" className={styles.authLink}>
+                      Sign in
+                    </Link>
+                  </>
+                )}
               </HStack>
             </Box>
             <Box className={styles.smallScreen}>
