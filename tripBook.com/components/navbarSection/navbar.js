@@ -27,10 +27,12 @@ import { useRouter } from "next/router";
 function Navbar() {
   const { auth, setAuth } = useContext(AuthContext);
   const router = useRouter();
+
   const SignoutReq = () => {
     setAuth({ ...auth, isAuth: "" });
     router.push("/");
   };
+
   return (
     <>
       {/* <Box className={styles.dNav} ><DraverNav/></Box> */}
@@ -98,7 +100,7 @@ function Navbar() {
                   List your property
                 </Link>
 
-                {auth ? (
+                {auth.isAuth ? (
                   <>
                     <Button
                       onClick={() => SignoutReq()}
