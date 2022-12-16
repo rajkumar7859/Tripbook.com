@@ -1,4 +1,4 @@
-import styles from "./Navbar.module.css";
+import styles from "./navbar.module.css";
 import Link from "next/link";
 import { QuestionIcon, Icon } from "@chakra-ui/icons";
 
