@@ -3,7 +3,7 @@ import { Slideshow } from "../components/explore/slideShow";
 import SearchBox from "../components/searchBox/searchBox";
 import { Box, Button, Image, Text } from "@chakra-ui/react";
 import { Nextrip } from "../components/explore/nextTrip";
-function stay() {
+function stay() {      
   const slideImages = [
     {
       url: "https://cf.bstatic.com/xdata/images/region/square250/49646.webp?k=b7f38878b9164ee38e0b99c4d4646dbea76b7bf4add8464b1aa75e4c9d0efc6e&o=",
