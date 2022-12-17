@@ -3,7 +3,7 @@ import { PropertyModel } from "../../../models/property.model";
 
 export default async function handler(req, res) {
   const { method } = req;
-  const { city, limit, page, sortBy, order } = req.query;
+  const { city, sortBy } = req.query;
 
   try {
     await connect();
@@ -13,35 +13,46 @@ export default async function handler(req, res) {
 
   if (method === "GET") {
     try {
-      let properties = await PropertyModel.find({ city })
-        .limit(limit)
-        .skip((page - 1) * limit);
+      let properties = await PropertyModel.find({ city });
 
       if (sortBy) {
         switch (sortBy) {
-          case "reviews": {
-            properties = await PropertyModel.find({ city })
-              .limit(limit)
-              .skip((page - 1) * limit)
-              .sort({ reviews: -1 });
+          case "TopReviewed":
+          case "TopPicks":
+             {
+            properties = await PropertyModel.find({ city }).sort({
+              reviews: -1,
+            });
 
             break;
           }
 
-          case "rating": {
-            properties = await PropertyModel.find({ city })
-              .limit(limit)
-              .skip((page - 1) * limit)
-              .sort({ rating: order });
+          case "HighestRating": {
+            properties = await PropertyModel.find({ city }).sort({
+              rating: -1,
+            });
 
             break;
           }
 
-          case "price": {
-            properties = await PropertyModel.find({ city })
-              .limit(limit)
-              .skip((page - 1) * limit)
-              .sort({ price: order });
+          case "LowestRating": {
+            properties = await PropertyModel.find({ city }).sort({ rating: 1 });
+
+            break;
+          }
+
+          case "LowPrice": {
+            properties = await PropertyModel.find({ city }).sort({
+              price: 1,
+            });
+
+            break;
+          }
+
+          case "HighPrice": {
+            properties = await PropertyModel.find({ city }).sort({
+              price: -1,
+            });
 
             break;
           }

@@ -18,11 +18,10 @@ import { SearchIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 import axios from "axios";
 import DatePicker from "../DatePicker";
+import Link from "next/link"; 
+
 const SearchBox = () => {
   const [inputData , setInputData] = useState("");
-  const getData = async() => {
-    const res = await axios.get(`http://localhost:3000/api/property`);
-  }
   return (
     <>
       <Box
@@ -101,8 +100,8 @@ const SearchBox = () => {
         </Box>
         {/*  */}
         <Pop />
+        <Link style={{textDecoration: "none"}} href={`/property?city=${inputData}`}>
         <Button
-        onClick={()=> getData()}
           paddingLeft={"60px"}
           paddingRight={"60px"}
           height={"50px"}
@@ -121,6 +120,8 @@ const SearchBox = () => {
         >
           Search
         </Button>
+        </Link>
+        
       </Box>
     </>
   );

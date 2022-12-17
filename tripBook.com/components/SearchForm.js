@@ -15,11 +15,16 @@ import {
   NumberIncrementStepper,
   NumberDecrementStepper,
 } from "@chakra-ui/react";
+import Link from "next/link";
+import { useState } from "react";
 
 import { BsSearch } from "react-icons/bs";
 import Datepicker from "./DatePicker";
 
 const SearchForm = () => {
+
+  const [inputData , setInputData] = useState("");
+
   return (
     <Box p="17px 15px" bg="#FEBB02">
       <Text fontSize="20px" fontWeight="bold">
@@ -29,7 +34,7 @@ const SearchForm = () => {
         <FormLabel fontSize="13px">Destination/property name:</FormLabel>
         <InputGroup bg="white" borderRadius="6px" mb="10px">
           <InputLeftElement pointerEvents="none" children={<BsSearch />} />
-          <Input type="text" placeholder="Where are you going" />
+          <Input onChange={({target}) => setInputData(target.value)} type="text" placeholder="Where are you going" />
         </InputGroup>
         <FormLabel fontSize="13px">Check-in - Check-out</FormLabel>
         <Datepicker />
@@ -46,9 +51,11 @@ const SearchForm = () => {
           <Checkbox>I'm travelling for work</Checkbox>
         </VStack>
 
+        <Link style={{textDecoration: "none"}} href={`/property?city=${inputData}`}>
         <Button w="100%" h="50px" type="submit" colorScheme="blue">
           Search
         </Button>
+        </Link>
       </FormControl>
     </Box>
   );
