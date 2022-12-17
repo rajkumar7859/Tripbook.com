@@ -16,7 +16,17 @@ import {
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import { useState } from "react";
+import axios from "axios";
 const SearchBox = () => {
+
+  const [inputData , setInputData] = useState("");
+
+  const getData = async() => {
+    const res = await axios.get("http://localhost:3000/api/property");
+
+  }
+  
+ 
   return (
     <>
       <Box
@@ -87,6 +97,8 @@ const SearchBox = () => {
             borderRight={"4px solid #febb02"}
             height="50px"
             borderRadius={"0px"}
+            onChange={({target}) => setInputData(target.value)}
+
           />
         </InputGroup>
         <Box display={"flex"}>
@@ -115,6 +127,7 @@ const SearchBox = () => {
         {/*  */}
         <Pop />
         <Button
+        onClick={()=> getData()}
           paddingLeft={"60px"}
           paddingRight={"60px"}
           height={"50px"}
