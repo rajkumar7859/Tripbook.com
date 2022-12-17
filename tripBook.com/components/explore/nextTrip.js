@@ -6,7 +6,7 @@ export const Nextrip = () => {
         width={"88%"}
         margin={"auto"}
         marginTop={"30px"}
-        border="2px solid pink"
+        // border="2px solid pink"
       >
         <Text
           textAlign={"start"}
@@ -26,7 +26,7 @@ export const Nextrip = () => {
           height="auto"
           marginBottom={"10px"}
           gap="10px"
-          border="2px solid green"
+          // border="2px solid green"
         >
           <Box
             position={"relative"}
