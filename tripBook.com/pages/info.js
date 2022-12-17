@@ -13,8 +13,6 @@ export default function Info(){
 
     return(
         <>
-      {/* main css & one main Hstack */}
-        {/* <Stack marginTop={"25px"}> */}
      <SimpleGrid columns={{base:1,lg:2}} w={"100%"} margin={"auto"} marginTop={"25px"} >
       
      <VStack margin={"auto"} marginTop={0} w={{base:"full",lg:"60%"}} >

@@ -6,17 +6,18 @@ import {BsTags } from "react-icons/bs"
 import {VscLocation } from "react-icons/vsc"
 import React from 'react'
 import SearchForm from '../components/SearchForm'
-import Footer from '../components/Footer'
+import Link from "next/link"
 
 const HotelDetails = () => {
   return (
    <Box  >
-    {/* ********************************************************************************************* */}
+
+\    {/* ********************************************************************************************* */}
 
     <Accordion allowToggle>
   <AccordionItem bg='#fff0e0'  border='none' color='black' p="0.5rem" >
     <Text textAlign="left"  fontSize="lg" fontWeight="700">
-      <AccordionButton  ml="-25rem" _hover={{bg:"none"}}>
+      <AccordionButton  _hover={{bg:"none"}}>
         <Box as="span" flex='1'  >
         Coronavirus (COVID-19) Support
         </Box>
@@ -33,15 +34,15 @@ const HotelDetails = () => {
 <Box w="80%" m="auto" mt="10px">
   <Breadcrumb spacing='8px' separator={<ChevronRightIcon color='gray.500' />} >
   <BreadcrumbItem>
-    <BreadcrumbLink href='#'>Home</BreadcrumbLink>
+    <BreadcrumbLink href='/'>Home</BreadcrumbLink>
   </BreadcrumbItem>
 
   <BreadcrumbItem>
-    <BreadcrumbLink href='#'>About</BreadcrumbLink >
+    <BreadcrumbLink href='/searchresults'>search results</BreadcrumbLink >
   </BreadcrumbItem >
 
   <BreadcrumbItem isCurrentPage>
-    <BreadcrumbLink href='#'>Contact</BreadcrumbLink>
+    <BreadcrumbLink href='hoteldetails'>Summary</BreadcrumbLink>
   </BreadcrumbItem>
 </Breadcrumb>
 </Box>
@@ -66,7 +67,7 @@ const HotelDetails = () => {
       </Flex>
 
 <Flex flexDirection={["column","column","row","row"]} fontSize="27px" gap="10px" justifyContent="space-evenly" alignItems="center" color="#0071c2"><AiOutlineHeart  cursor="pointer" /> <HiShare  cursor="pointer" /> 
-<Button bg="#0071c2" color="white"   _hover={{bg:"#014778"}}>Reserve</Button>
+<Link href="/info" ><Button bg="#0071c2" color="white"   _hover={{bg:"#014778"}}>Reserve</Button></Link>
 </Flex>
     </Flex>
 
@@ -101,13 +102,12 @@ const HotelDetails = () => {
    <Text mt="5px" >{"Buffer"}</Text> 
 
    <Box lineHeight="4rem" >
-    <Button w="100%" bg="#0071c2" _hover={{bg:"#014778"}} color="white"  >Reserve</Button>
+    <Link href="/info"><Button w="100%" bg="#0071c2" _hover={{bg:"#014778"}} color="white"  >Reserve</Button></Link>
     <Button w="100%" color="#0071c2" border="1px solid #0071c2" >Save the property</Button>
    </Box>
   </Box>
 </Flex>
 <hr style={{marginBottom:"1rem" , borderColor:"black"}} />
-<Footer />
    </Box>
   )
 }
