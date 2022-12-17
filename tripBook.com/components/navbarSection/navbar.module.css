@@ -20,20 +20,20 @@
 
 .authLink {
   /* height: 20%; */
-  background-color: #edefed; /* Green */
-  border: none;
-  color: rgb(35, 87, 245);
+  /* background-color: #edefed;  */
+  border-radius: 10px;
+  /* color:#004cb8;
   padding: 8px;
   text-align: center;
   margin-top: -50px;
-  text-decoration: none;
+  text-decoration: none;   */
 
   font-size: 15px;
 }
 .uniqueButton {
   /* height: 20%; */
   background-color: #004cb8;
-
+  border-radius: 10px;
   border: 1px solid rgb(249, 243, 243);
   color: rgb(241, 239, 239);
   padding: 8px;
@@ -104,6 +104,10 @@
   cursor: pointer;
 }
 
+.stackBox {
+  /* border: 2px solid yellow; */
+  margin-top: 12px;
+}
 /* .authLink{
 
  } */
@@ -117,6 +121,16 @@
   .smallScreen {
     display: flex;
   }
+
+  .logosize {
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+    margin-top: 6px;
+  }
+  .smallnavbutton {
+    width: 30%;
+  }
 }
 
 @media only screen and (max-width: 855px) {
@@ -126,64 +140,13 @@
   .smallScreen {
     display: flex;
   }
+  .logosize {
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+    margin-top: 6px;
+  }
+  .smallnavbutton {
+    width: 120px;
+  }
 }
-
-/* colorScheme='teal' variant='outline' */
-/* .main{
-
-    width: 98.7vw ;
-    margin-left: -8px ;
-    margin-top: -8px ;
-    overflow-y: hidden;
-    --bui_color_black: #000;
-    --bui_color_white: #fff;
-    --bui_color_border: #949494;
-    --bui_color_border_alt: #e7e7e7;
-    --bui_color_accent_border: #febb02;
-    --bui_color_action_border: #0071c2;
-    --bui_color_callout_border: #ff8000;
-    --bui_color_border_disabled: #d9d9d9;
-    --bui_color_destructive_border: #c00;
-    --bui_color_constructive_border: #008009;
-    --bui_color_background: #494949;
-    --bui_color_transparent: transparent;
-    --bui_color_background_alt: #f2f2f2;
-    --bui_color_cta_background: #0071c2;
-    --bui_color_background_base: #fff;
-    --bui_color_black_with_alpha: rgba(0,0,0,0.5);
-    --bui_color_accent_background: #febb02;
-    --bui_color_action_background: #0071c2;
-    --bui_color_callout_background: #ff8000;
-    --bui_color_background_base_alt: #f2f2f2;
-    --bui_color_background_disabled: #d9d9d9;
-    --bui_color_background_inverted: #171717;
-    --bui_color_accent_background_alt: #fdf4d8;
-    --bui_color_action_background_alt: #e4f4ff;
-    --bui_color_callout_background_alt: #fff0e0;
-    --bui_color_destructive_background: #c00;
-    --bui_color_background_disabled_alt: #f2f2f2;
-    --bui_color_constructive_background: #008009;
-    --bui_color_brand_primary_background: #003580;
-    --bui_color_destructive_background_alt: #fff0f0;
-    --bui_color_constructive_background_alt: #e7fde9;
-    --bui_color_brand_genius_primary_background: #004cb8;
-    --bui_color_foreground: #262626;
-    --bui_color_foreground_alt: #6b6b6b;
-    --bui_color_accent_foreground: #8e6601;
-    --bui_color_action_foreground: #0071c2;
-    --bui_color_callout_foreground: #923e01;
-    --bui_color_foreground_disabled: #949494;
-    --bui_color_foreground_inverted: #f2f2f2;
-    --bui_color_destructive_foreground: #c00;
-    --bui_color_constructive_foreground: #008009;
-    --bui_color_foreground_disabled_alt: #d9d9d9;
-    --bui_color_brand_primary_foreground: #003580;
-    --bui_color_action_foreground_inverted: #3daeff;
-    --bui_color_brand_genius_secondary_foreground: #febb02;
-    --bui_color_highlighted: #cbcbcb;
-    --bui_color_action_focus: rgba(0,113,194,0.24);
-    --bui_color_cta_highlighted: #00487a;
-    --bui_color_highlighted_alt: rgba(0,0,0,0.06);
-    --bui_color_destructive_focus: rgba(204,0,0,0.24);
-}
-  */

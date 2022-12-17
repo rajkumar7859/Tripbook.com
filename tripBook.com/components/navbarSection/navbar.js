@@ -38,29 +38,34 @@ function Navbar() {
       {/* <Box className={styles.dNav} ><DraverNav/></Box> */}
 
       <Box
-        border="1px solid black"
+        // border="1px solid black"
         w="100%"
         color="white"
         height="auto"
         bg="#003580"
       >
         <Box
-          // border="2px solid green"
+            // border="3px solid green"
           w="90%"
           color="#262626"
           margin="auto"
           p={4}
+          className={styles.smallScreenBox}
         >
           <Box display="flex" justifyContent="space-between">
-            <Box>
+            <Link href="/">
+            <Box  
+            // border="2px solid green" 
+            className={styles.logosize}  >
               <img
                 src="applogo.png"
-                border="2px solid red"
-                width="200px"
-                height="50px"
+                // border="2px solid red"
+                  width="200px"
+                  height="50px"
                 alt="logo"
               />
             </Box>
+            </Link>
 
             <Box className={styles.stackBox}>
               <HStack spacing={["15px", "12px"]}>
@@ -73,8 +78,10 @@ function Navbar() {
                 <Link href="#">
                   <Image
                     borderRadius="50%"
-                    boxSize="30px"
-                    src="indflag.jpg"
+                    background="none"
+                    width={25}
+                    height={25}
+                    src="ind.jpeg"
                     alt="IND"
                     marginTop="4px"
                   />
@@ -113,11 +120,19 @@ function Navbar() {
                 ) : (
                   <>
                     <Link href="/signup" className={styles.authLink}>
-                      Register
+                      <Button
+                    className={styles.authLink}
+                    >
+                       Register
+                    </Button>
                     </Link>
 
                     <Link href="/signin" className={styles.authLink}>
+                    <Button
+                    className={styles.authLink}
+                    >
                       Sign in
+                    </Button>
                     </Link>
                   </>
                 )}
@@ -133,7 +148,7 @@ function Navbar() {
             className={styles.stackBox}
           >
             <HStack spacing="25px">
-              <Link href="/stay" className={styles.navRow2One}>
+              <Link href="/" className={styles.navRow2One}>
                 <IoBedOutline className={styles.iconsStyles1} />
                 Stays
               </Link>
