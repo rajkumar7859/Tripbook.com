@@ -17,8 +17,7 @@ import {
 } from "@chakra-ui/react";
 
 import { BsSearch } from "react-icons/bs";
-import { DateRangePicker } from "rsuite";
-import "rsuite/dist/rsuite.css";
+import Datepicker from "./DatePicker";
 
 const SearchForm = () => {
   return (
@@ -33,8 +32,8 @@ const SearchForm = () => {
           <Input type="text" placeholder="Where are you going" />
         </InputGroup>
         <FormLabel fontSize="13px">Check-in - Check-out</FormLabel>
-        <DateRangePicker className="date_picker" />
-        <NumberInput min={0} max={20} bg="white" mb="10px" borderRadius="6px">
+        <Datepicker />
+        <NumberInput mt="10px" min={0} max={20} bg="white" mb="10px" borderRadius="6px">
           <NumberInputField placeholder="Number of guests" />
           <NumberInputStepper>
             <NumberIncrementStepper />

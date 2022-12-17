@@ -16,7 +16,13 @@ import {
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import { useState } from "react";
+import axios from "axios";
+import DatePicker from "../DatePicker";
 const SearchBox = () => {
+  const [inputData , setInputData] = useState("");
+  const getData = async() => {
+    const res = await axios.get(`http://localhost:3000/api/property`);
+  }
   return (
     <>
       <Box
@@ -74,7 +80,7 @@ const SearchBox = () => {
         marginTop={"-20px"}
         backgroundColor={"white"}
         height={"auto"}
-        border="4px solid #febb02"
+        border="4px solid #FEBB02"
       >
         <InputGroup>
           <InputLeftElement
@@ -84,37 +90,19 @@ const SearchBox = () => {
           <Input
             type="tel"
             placeholder="Where are you going?"
-            borderRight={"4px solid #febb02"}
+            borderRight={"4px solid #FEBB02"}
             height="50px"
             borderRadius={"0px"}
+            onChange={({target}) => setInputData(target.value)}
           />
         </InputGroup>
-        <Box display={"flex"}>
-          <Input
-            // borderColor={"yellow"}
-            borderRight="0"
-            borderRadius={"0px"}
-            placeholder="Check-In"
-            size="sm"
-            type="date"
-            aria-hidden={true}
-            height={"auto"}
-            // display={{ base:"block" , sm:"block" , md:"flex" , lg:"flex" , xl : "flex" , '2xl' : "flex"}}
-          />{" "}
-          <Input
-            borderRight={"4px solid #febb02"}
-            borderRadius={"0px"}
-            borderLeft={"none"}
-            placeholder="Check-Out"
-            size="sm"
-            type="date"
-            height={"auto"}
-            // display={{ base:"block" , sm:"block" , md:"flex" , lg:"flex" , xl : "flex" , '2xl' : "flex"}}
-          />
+        <Box alignItems={"center"} borderRight={"4px solid #FEBB02"} display={"flex"}>
+          <DatePicker />          
         </Box>
         {/*  */}
         <Pop />
         <Button
+        onClick={()=> getData()}
           paddingLeft={"60px"}
           paddingRight={"60px"}
           height={"50px"}
@@ -137,7 +125,6 @@ const SearchBox = () => {
     </>
   );
 };
-
 export default SearchBox;
 
 function Pop() {
