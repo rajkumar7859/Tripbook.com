@@ -115,6 +115,7 @@ export const Nextrip = () => {
         </Box>
 
         <Box
+        gap="10px"
           // width={"100%"}
           // display={"flex"}
           // border={{ base:"8px solid yellow", sm:'5px solid green', md: '3px solid teal', lg: '2px solid black' , xl:'3px solid red' , '2xl':'4px solid grey' }}

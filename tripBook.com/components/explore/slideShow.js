@@ -17,14 +17,7 @@ export const Slideshow = ({ image, no, tag, subTag }) => {
         width={"88%"}
         margin={"auto"}
         marginBottom={"20px"}
-        // border={{
-        //   base: "8px solid red",
-        //   sm: "5px solid green",
-        //   md: "3px solid teal",
-        //   lg: "2px solid pink",
-        //   xl: "3px solid grey",
-        //   "2xl": "4px solid grey",
-        // }}
+       
       >
         <Text
           fontWeight={"bold"}
@@ -41,29 +34,16 @@ export const Slideshow = ({ image, no, tag, subTag }) => {
               <Box
                 className="each-slide"
                 key={index}
-                // border={{
-                //   base: "8px solid red",
-                //   sm: "5px solid green",
-                //   md: "3px solid teal",
-                //   lg: "2px solid black",
-                //   xl: "2px solid black",
-                //   "2xl": "4px solid grey",
-                // }}
+               margin="0px 10px 0px 10px"
               >
                 <Box
-                  marginRight={"10px"}
-                //   border={{
-                //     base: "8px solid red",
-                //     sm: "5px solid green",
-                //     md: "3px solid teal",
-                //     lg: "2px solid black",
-                //     xl: "3px solid red",
-                //     "2xl": "4px solid grey",
-                //   }}
+                  // marginRight={"10px"}
+                  
                   height="auto"
+                  
                 >
-                  <img src={slideImage.url} alt="v" />
-                  <Box display={{ base:"none" , sm:"none" , md:"block" , lg:"block" , xl : "block" , '2xl' : "block"}} > 
+                  <img src={slideImage.url} alt="v"  />
+                  <Box display={{ base:"none" , sm:"none" , md:"block" , lg:"block" , xl : "block" , '2xl' : "block"}}   > 
                   <h3 style={{ fontWeight: "bold" }}>{slideImage.caption}</h3>
                   <h3 style={{ fontWeight: "400" }}>{slideImage.property}</h3>
                   </Box>
@@ -82,3 +62,4 @@ export const Slideshow = ({ image, no, tag, subTag }) => {
     </Box>
   );
 };
+ 

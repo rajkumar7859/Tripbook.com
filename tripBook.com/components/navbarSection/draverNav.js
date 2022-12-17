@@ -35,9 +35,11 @@ function DraverNav() {
       <Button
         ref={btnRef}
         colorScheme="#004cb8"
+         
         border="1px solid white"
         onClick={onOpen}
-        fontSize={{ md: "10px", sm: "16px" }}
+        className={styles.smallnavbutton}
+        // fontSize={{ md: "10px", sm: "16px" }}
       >
         Explore-more
       </Button>

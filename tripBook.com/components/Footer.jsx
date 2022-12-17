@@ -4,7 +4,7 @@ import { Box, Button, Grid, Image, Input, Text } from "@chakra-ui/react"
 
 const Footer = () => {
   return (
-    <Box  pb="2rem" >
+    <Box  pb="2rem" mt={4} >
       {/* *****************************************************footer Section 1 start********************************************************** */}
     <Box bg='#00224f' w='100%' p="2rem" color='white'>
       <Box w='60%' m="auto" p={4} >
