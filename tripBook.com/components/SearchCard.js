@@ -11,66 +11,100 @@ import {
 import { AiFillStar, AiFillLike } from "react-icons/ai";
 import { BsHeart } from "react-icons/bs";
 
-const SearchCard = () => {
+const SearchCard = ({
+  id,
+  title,
+  TravelText,
+  TravelText1,
+  TravelText2_o,
+  TravelText_2,
+  TravelText2,
+  price,
+  reviews,
+  rating,
+  ratingStatus,
+  imagescr,
+  city,
+}) => {
   return (
-    <Flex w="100%" p="15px" border="1px solid #C6C6C6" gap="10px" flexDirection={["column","column","column","row","row"]}>
-      <Box position="relative" minW="200px" h="200px">
-        <Image
-          w="100%"
-          h="100%"
-          src="https://cf.bstatic.com/xdata/images/hotel/square200/323330336.webp?k=b584d3e27a05d007d1ef1443849b8f00d296f51c347b9c97fab70ae45841b2c2&o=&s=1"
-        />
-        <Box w="30px" h="30px" position="absolute" top="10px" right="0px">
-          <BsHeart className="image_icon" fontSize="20px" />
+    <Flex
+      w="100%"
+      p="15px"
+      border="1px solid #C6C6C6"
+      gap="10px"
+      justifyContent={"space-between"}
+      flexDirection={["column", "column", "column", "row", "row"]}
+    >
+      <Flex
+        gap="10px"
+        flexDirection={["column", "column", "column", "row", "row"]}
+      >
+        <Box position="relative" minW="200px" h="200px">
+          <Image
+            w="100%"
+            h="100%"
+            src={imagescr}
+          />
+          <Box w="30px" h="30px" position="absolute" top="10px" right="0px">
+            <BsHeart className="image_icon" fontSize="20px" />
+          </Box>
         </Box>
-      </Box>
-      <Flex flexDirection="column" gap="5px">
-        <Flex alignItems={"center"}>
-          <Text
-            mr="10px"
-            fontWeight={"bold"}
-            color="blackAlpha.700"
-            fontSize={"20px"}
-          >
-            Haveli Kalwara - A Heritage Hotel
-          </Text>
-          <AiFillStar color="#FEBB02" />
-          <AiFillStar color="#FEBB02" />
-          <AiFillLike color="#FEBB02" />
-        </Flex>
+        <Flex flexDirection="column" gap="5px">
+          <Flex alignItems={"center"}>
+            <Text
+              mr="10px"
+              fontWeight={"bold"}
+              color="blackAlpha.700"
+              fontSize={"20px"}
+            >
+              {title}
+            </Text>
+            <AiFillStar color="#FEBB02" />
+            <AiFillStar color="#FEBB02" />
+            <AiFillLike color="#FEBB02" />
+          </Flex>
 
-        <HStack fontSize="12px">
-          <Link color="#007BD2" textDecoration={"underline"}>
-            Lorem lorem
-          </Link>
-          <Link color="#007BD2" textDecoration={"underline"}>
-            Lorem lorem
-          </Link>
-          <Text>450 m from centre</Text>
-        </HStack>
-        <Text fontSize="12px">Travel Sustainable property</Text>
-        <Text fontSize="12px">
-          Initially, built in the 17th century as the Rajput Court House,
-          Kalwara Haveli is located in Jaipur. The Ajmeri Gate is 750 metres
-          away.
-        </Text>
+          <HStack fontSize="12px">
+            <Link color="#007BD2" textDecoration={"underline"}>
+              {city}
+            </Link>
+            <Link color="#007BD2" textDecoration={"underline"}>
+              Show on map
+            </Link>
+            <Text>
+              { TravelText ? TravelText : ""}
+            </Text>
+          </HStack>
+          {/* <Text fontSize="12px">{TravelText ? TravelText : ""}</Text> */}
+          <Text fontSize="14px">
+            {TravelText1 ? TravelText1 : ""}
+            {TravelText2 ? TravelText2 : ""}
+            {TravelText2_o ? TravelText2_o : ""}
+            {TravelText_2 ? TravelText_2 : ""}
+          </Text>
+        </Flex>
       </Flex>
+
       <Flex flexDirection={"column"} gap="10px">
-        <Flex justifyContent={"space-between"} alignItems="center">
+        <Flex fontWeight={"bold"} justifyContent={"space-between"} alignItems="center">
           <Flex flexDirection={"column"}>
-            <Text>Very good</Text>
+            <Text>{ratingStatus}</Text>
             <Text color="blackAlpha.700" fontSize={"12px"}>
-              195 reviews
+              {reviews ? reviews : 0} reviews
             </Text>
           </Flex>
-          <Center w="30px"
+          <Center
+            w="30px"
             h="30px"
             bg="#003580"
             borderRadius={"4px"}
             borderBottomLeftRadius="0px"
-            color="white">8.3</Center>
+            color="white"
+          >
+            {rating}
+          </Center>
         </Flex>
-        <Button colorScheme={"blue"}>Show Prices</Button>
+        <Button colorScheme={"blue"}>See availability</Button>
       </Flex>
     </Flex>
   );

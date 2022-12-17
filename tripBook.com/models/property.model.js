@@ -39,6 +39,9 @@ const PropertySchema = new Schema({
     },
     reviews: {
         type: String,
+    },
+    price: {
+        type: String,
         required: true
     }
 });
