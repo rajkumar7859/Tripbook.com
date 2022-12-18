@@ -4,8 +4,10 @@ import SearchBox from "../components/searchBox/searchBox";
 import { Box, Button, Image, Text } from "@chakra-ui/react";
 import { Nextrip } from "../components/explore/nextTrip";
 import ConnectWithtravellers from "../components/explore/connectTravellers";
-  import Navbar from "../components/navbarSection/navbar"
-function stay() {      
+import Navbar from "../components/navbarSection/navbar";
+function Stay() {
+  // { slideImages, slide, travel, stay }
+  // console.log(travel);
   const slideImages = [
     {
       url: "https://cf.bstatic.com/xdata/images/region/square250/49646.webp?k=b7f38878b9164ee38e0b99c4d4646dbea76b7bf4add8464b1aa75e4c9d0efc6e&o=",
@@ -116,17 +118,17 @@ function stay() {
     },
     {
       caption: "15% discounts",
-      property: "Complete 5 stays to unlock Genius Level 2",
+      property: "Complete 5 stays to unlock Genius Level-2 limited time offer",
       url: "https://cf.bstatic.com/xdata/images/xphoto/800x640/140041021.jpg?k=50ca96e9a096248007c928276d12e5dad282fd03e2ea1823fda7a760db536763&o=",
     },
     {
       caption: "Free breakfasts",
-      property: "Complete 5 stays to unlock Genius Level 2",
+      property: "Complete 5 stays to unlock Genius Level 2 limited time offer",
       url: "https://cf.bstatic.com/xdata/images/xphoto/800x640/140052024.jpg?k=b8f74619b3aec947be473a2cf34007c61c2d04cf75d0c0341f743fd221340b7e&o=",
     },
     {
       caption: "Free room upgrades",
-      property: "Complete 5 stays to unlock Genius Level 2",
+      property: "Complete 5 stays to unlock Genius Level 2 limited time offer",
       url: "https://cf.bstatic.com/xdata/images/xphoto/800x640/140050120.jpg?k=beffc8d06a6e85cdde5efe2afee5629446aa3f5196827172d4fdc507b2fcae34&o=",
     },
   ];
@@ -144,7 +146,7 @@ function stay() {
     },
     {
       caption: "15% discounts",
-      property: "Complete 5 stays to unlock Genius Level 2",
+      property: "Complete 5 stays to unlock Genius Level 2 limited time offer",
       url: "https://cf.bstatic.com/xdata/images/hotel/square600/132452060.webp?k=8448bab55c87dbb42ab7c6643fbbce542124c908f63f6b36dc3cdc859e60cb0a&o=&s=1",
     },
     {
@@ -161,7 +163,7 @@ function stay() {
 
   return (
     <>
-    <Navbar/>  
+      <Navbar />
       <BgComponent
         heading="The joy of home anywhere in the world"
         subHeading="Easy booking, easy living"
@@ -262,11 +264,9 @@ function stay() {
           // justifyContent="space-evenly"
           marginBottom={"10px"}
           // border="4px solid red"
-            gap="7px"
-       
+          gap="7px"
         >
           <Box
-          
             display={"flex"}
             // width={"55%"}
             width={"50%"}
@@ -298,7 +298,6 @@ function stay() {
                 New Delhi
               </Text>
               <Image
-               
                 height={"25px"}
                 width={"25px"}
                 marginTop={"10px"}
@@ -310,9 +309,8 @@ function stay() {
           </Box>
 
           <Box
-          //  border="2px solid black"
+            //  border="2px solid black"
             width={"50%"}
-            
             height={"100%"}
             backgroundPosition={"center"}
             backgroundRepeat={"no-repeat"}
@@ -349,7 +347,7 @@ function stay() {
               />
             </Box>
           </Box>
-       </Box>
+        </Box>
 
         <Box width={"100%"} display={"flex"} gap="10px">
           <Box
@@ -370,7 +368,6 @@ function stay() {
                 xl: "flex",
                 "2xl": "flex",
               }}
-             
               marginTop={"10px"}
               // border="2px solid green"
             >
@@ -409,7 +406,6 @@ function stay() {
                 lg: "flex",
                 xl: "flex",
                 "2xl": "flex",
-                
               }}
               // border="2px solid green"
               marginTop={"10px"}
@@ -497,29 +493,59 @@ function stay() {
       />
       <br />
       <Nextrip />
-      <br/>
-      <br/>
-      
-        <Box width={"88%"} margin="auto">
+      <br />
+      <br />
+
+      <Box width={"88%"} margin="auto">
         <Text
-            fontWeight={"bold"}
-            fontSize={{
-              base: "10px",
-              sm: "14px",
-              md: "19px",
-              lg: "20px",
-              xl: "21px",
-              "2xl": "22px",
-            }}
-          >
-             Connect with other travelers
-          </Text>
-          <br />
-        <ConnectWithtravellers/>
-      </Box>  
-     
+          fontWeight={"bold"}
+          fontSize={{
+            base: "10px",
+            sm: "14px",
+            md: "19px",
+            lg: "20px",
+            xl: "21px",
+            "2xl": "22px",
+          }}
+        >
+          Connect with other travelers
+        </Text>
+        <br />
+        <ConnectWithtravellers />
+      </Box>
     </>
   );
 }
 
-export default stay;
+export default Stay;
+
+//we can use this if we want to use data from deployed server
+
+// export const getStaticProps = async () => {
+//   const res1 = await fetch(
+//     "https://web-database-pravin.onrender.com/slideImages"
+//   );
+
+//   const dataSlideImage = await res1.json();
+
+//   const res2 = await fetch("https://web-database-pravin.onrender.com/slide");
+
+//   const dataSlide = await res2.json();
+
+//   const res3 = await fetch("https://web-database-pravin.onrender.com/travel");
+
+//   const dataTravel = await res3.json();
+
+//   const res4 = await fetch("https://web-database-pravin.onrender.com/stay");
+
+//   const dataStay = await res4.json();
+
+//   return {
+//     props: {
+//       slideImages: dataSlideImage,
+//       slide: dataSlide,
+//       travel: dataTravel,
+//       stay: dataStay,
+//     },
+//   };
+// };
