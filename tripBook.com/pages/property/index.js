@@ -128,6 +128,8 @@ const Property = ({ data }) => {
           </MenuList>
         </Menu>
         {data.map((el) => (
+
+          <Link style={{textDecoration: "none"}} href={`/property/${el._id}`}>
           <SearchCard
             title={el.title}
             TravelText={el.TravelText}
@@ -144,6 +146,8 @@ const Property = ({ data }) => {
             id={el._id}
             city={el.city}
           />
+          </Link>
+          
         ))}
       </Flex>
     </Flex>

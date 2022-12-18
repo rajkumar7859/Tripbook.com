@@ -30,7 +30,7 @@ export const Slideshow = ({ image, no, tag, subTag }) => {
         <p style={{ marginBottom: "8px" }}>{subTag}</p>
         <Slide slidesToShow={no} autoplay={false} className="slidingCont">
           {image.map((slideImage, index) => (
-            <Link href={`/explore${slideImage.caption}`} key={index}>
+            <Link style={{textDecoration: "none"}} href={`/property?city=${slideImage.caption}`} key={index}>
               <Box
                 className="each-slide"
                 key={index}

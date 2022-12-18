@@ -3,7 +3,6 @@ import { model, Schema, models } from "mongoose";
 const PropertySchema = new Schema({
     redirecturl: {
         type: String,
-        required: true
     },
     imagescr: {
         type: String,
@@ -15,7 +14,6 @@ const PropertySchema = new Schema({
     },
     summary: {
         type: String,
-        required: true
     },
     city: {
         type: String,
@@ -23,26 +21,21 @@ const PropertySchema = new Schema({
     },
     TravelText: {
         type: String,
-        required: true
     },
     TravelText2: {
         type: String,
-        required: true
     },
     rating: {
         type: Number,
-        required: true
     },
     ratingStatus: {
         type: String,
-        required: true
     },
     reviews: {
         type: Number,
     },
     price: {
         type: Number,
-        required: true
     }
 });
 

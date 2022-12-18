@@ -9,11 +9,24 @@ import {
     Image,
     Box,
   } from '@chakra-ui/react';
+import axios from 'axios';
+import { useState } from 'react';
   import { BsQuestionCircle } from 'react-icons/bs'
   import { CgProfile } from 'react-icons/cg'
 
   
-  const addproperty=()=> {
+  const AddProperty=()=> {
+
+   const [title, setTitle] = useState(""); 
+   const [imagescr, setImagescr] = useState(""); 
+   const [city, setCity] = useState(""); 
+ 
+
+   const postProp = async() => {
+    const res = await axios.post(`/api/property`, {title, imagescr, city});
+    console.log(res.data)
+   }
+
     return (
         <>
         <Box p="1rem 3rem 1rem 2rem" display="flex" bg="#003580" mb="1rem" justifyContent="space-between" >
@@ -31,19 +44,19 @@ import {
           <Stack spacing={4} w={'full'} maxW={'md'}>
             <Heading fontSize={'2xl'}>Add your property details</Heading>
             <FormControl id="text">
-              <FormLabel>Image</FormLabel>
-              <Input type="file" />
+              <FormLabel>Image Url</FormLabel>
+              <Input onChange={({target}) => setImagescr(target.value)} type="url" />
             </FormControl>
             <FormControl id="location">
-              <FormLabel>Location</FormLabel>
-              <Input type="text" />
+              <FormLabel>Name</FormLabel>
+              <Input onChange={({target}) => setTitle(target.value)} type="text" />
             </FormControl>
             <FormControl id="city">
               <FormLabel>City</FormLabel>
-              <Input type="text" />
+              <Input onChange={({target}) => setCity(target.value)} type="text" />
             </FormControl>
             <Stack spacing={6}>
-              <Button colorScheme={'blue'} variant={'solid'}>
+              <Button onClick={() => postProp()} colorScheme={'blue'} variant={'solid'}>
                 Add your property
               </Button>
             </Stack>
@@ -62,4 +75,4 @@ import {
             </>
     );
   }
-  export default addproperty
+  export default AddProperty;

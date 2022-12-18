@@ -15,6 +15,7 @@ import { useRouter } from "next/router";
 import { BsGithub } from "react-icons/bs";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContextProvider";
+import Navbar from "../components/navbarSection/navbar";
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -60,6 +61,8 @@ const Signup = () => {
   };
 
   return (
+    <>
+    <Navbar />
     <Box mt="80px">
       <Box w="90%" m="auto">
         <Heading
@@ -179,6 +182,8 @@ const Signup = () => {
         </Text>
       </VStack>
     </Box>
+    </>
+    
   );
 };
 

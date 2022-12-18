@@ -102,7 +102,6 @@ const SearchBox = () => {
         <Pop />
         <Link style={{textDecoration: "none"}} href={`/property?city=${inputData}`}>
         <Button
-        onClick={()=> getData()}
           paddingLeft={"60px"}
           paddingRight={"60px"}
           height={"50px"}
