@@ -25,13 +25,13 @@ const listproperty = () => {
         <Text fontSize="md" mb="1.5rem">To get started, choose the type of property you want to list on Booking.com</Text>
 
 <Box  m="auto" w="25%" p="5px" mt="1rem" border="1px solid gray" bg="white">
-    <Flex alignItems="center"  bg="green" color="white" p="5px" w="35%" m="auto" fontSize="13px" borderRadius="4px" justifyContent="space-between" ><VscDebugRestartFrame fontSize="18px" /> Quick start</Flex>
+    <Flex alignItems="center"  bg="green" color="white" p="5px" w="35%" flexDirection={["column","column","row","row"]} m="auto" fontSize="13px" borderRadius="4px" justifyContent="space-between" ><VscDebugRestartFrame fontSize="18px" /> Quick start</Flex>
 <Image w="30%" h="30%" m="auto" mb="10px" src="https://q.bstatic.com/static/img/join/segmentation/accomm_one_apt_main@2x.png" />
 <Text textAlign="center" fontSize="md" fontWeight="700" mb="10px" >Hotel, B&Bs, and more</Text>
 <Box w="75%" m="auto" mb="1rem">
   <Text textAlign="center" fontSize="xs"  >Furnished and self-catering accommodation, where guests rent the entire place.</Text>
 </Box>
-<Link href="#"><Button w="100%" bg="#0071c2" _hover={{bg:"#014778"}} color="white" mb="1rem" >List your property</Button></Link>
+<Link href="/addproperty"><Button w="100%" bg="#0071c2" _hover={{bg:"#014778"}} color="white" mb="1rem" >List your property</Button></Link>
 </Box>
         </Box>
       </Box>
