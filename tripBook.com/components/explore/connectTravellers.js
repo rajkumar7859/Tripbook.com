@@ -40,7 +40,10 @@ function ConnectWithtravellers() {
           <Stack key={i}>
             <Box>
               <Img src={elem.image} />
-              <Text> {elem.caption} </Text>
+              <Text  fontWeight={"bold"}
+          // fontSize={["12px", "15px", "18px", "22px"]}
+          marginBottom={"8px"}
+          marginTop={"15px"} > {elem.caption} </Text>
               <Text> {elem.property} </Text>
               <Text> {elem.numbers} </Text>
             </Box>
