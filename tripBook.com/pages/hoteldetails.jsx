@@ -74,8 +74,13 @@ const HotelDetails = () => {
 <Text fontSize='2xl' fontWeight="700" mt="10px" >{"La-Paz Gardens Beacon Hotel - Vasco da Gama Goa"}</Text>
 
 <Box>
-  <Image w="100%" h="80%" src={"https://cf.bstatic.com/xdata/images/hotel/max1024x768/339377483.jpg?k=d6cd6247bf2c8c8dd62cb57cd0bf8b9c4c4498bc29d48f6aa575de5d14f137d6&o=&hp=1"} />
+  <Image cursor="pointer" w="100%" h="80%" src={"https://cf.bstatic.com/xdata/images/hotel/max1024x768/339377483.jpg?k=d6cd6247bf2c8c8dd62cb57cd0bf8b9c4c4498bc29d48f6aa575de5d14f137d6&o=&hp=1"} />
 </Box>
+<Flex cursor="pointer" mt="1.5rem" flexDirection={["column","column","row","row"]} justifyContent="space-between">
+  <Image  w={{lg:"30%" ,sm:"100%"}} src={"https://www.holidify.com/images/cmsuploads/compressed/47687118_20220223165443.jpg"} />
+  <Image  w={{lg:"30%" ,sm:"100%"}} src={"https://i.travelapi.com/hotels/5000000/4440000/4431500/4431441/ec1c952a_z.jpg"} />
+  <Image  w={{lg:"30%" ,sm:"100%"}} src={"https://i.travelapi.com/hotels/5000000/4590000/4581400/4581312/426434da_z.jpg"} />
+</Flex>
   </Box>
 </Flex>
 </Box>
