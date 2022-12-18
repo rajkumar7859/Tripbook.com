@@ -4,8 +4,8 @@ import SearchBox from "../components/searchBox/searchBox";
 import { Box, Button, Image, Text } from "@chakra-ui/react";
 import { Nextrip } from "../components/explore/nextTrip";
 import ConnectWithtravellers from "../components/explore/connectTravellers";
-  import Navbar from "../components/navbarSection/navbar"
-function stay() {      
+import Navbar from "../components/navbarSection/navbar";
+function Stay() {
   const slideImages = [
     {
       url: "https://cf.bstatic.com/xdata/images/region/square250/49646.webp?k=b7f38878b9164ee38e0b99c4d4646dbea76b7bf4add8464b1aa75e4c9d0efc6e&o=",
@@ -161,7 +161,7 @@ function stay() {
 
   return (
     <>
-    <Navbar/>  
+      <Navbar />
       <BgComponent
         heading="The joy of home anywhere in the world"
         subHeading="Easy booking, easy living"
@@ -262,11 +262,9 @@ function stay() {
           // justifyContent="space-evenly"
           marginBottom={"10px"}
           // border="4px solid red"
-            gap="7px"
-       
+          gap="7px"
         >
           <Box
-          
             display={"flex"}
             // width={"55%"}
             width={"50%"}
@@ -298,7 +296,6 @@ function stay() {
                 New Delhi
               </Text>
               <Image
-               
                 height={"25px"}
                 width={"25px"}
                 marginTop={"10px"}
@@ -310,9 +307,8 @@ function stay() {
           </Box>
 
           <Box
-          //  border="2px solid black"
+            //  border="2px solid black"
             width={"50%"}
-            
             height={"100%"}
             backgroundPosition={"center"}
             backgroundRepeat={"no-repeat"}
@@ -349,7 +345,7 @@ function stay() {
               />
             </Box>
           </Box>
-       </Box>
+        </Box>
 
         <Box width={"100%"} display={"flex"} gap="10px">
           <Box
@@ -370,7 +366,6 @@ function stay() {
                 xl: "flex",
                 "2xl": "flex",
               }}
-             
               marginTop={"10px"}
               // border="2px solid green"
             >
@@ -409,7 +404,6 @@ function stay() {
                 lg: "flex",
                 xl: "flex",
                 "2xl": "flex",
-                
               }}
               // border="2px solid green"
               marginTop={"10px"}
@@ -497,29 +491,28 @@ function stay() {
       />
       <br />
       <Nextrip />
-      <br/>
-      <br/>
-      
-        <Box width={"88%"} margin="auto">
+      <br />
+      <br />
+
+      <Box width={"88%"} margin="auto">
         <Text
-            fontWeight={"bold"}
-            fontSize={{
-              base: "10px",
-              sm: "14px",
-              md: "19px",
-              lg: "20px",
-              xl: "21px",
-              "2xl": "22px",
-            }}
-          >
-             Connect with other travelers
-          </Text>
-          <br />
-        <ConnectWithtravellers/>
-      </Box>  
-     
+          fontWeight={"bold"}
+          fontSize={{
+            base: "10px",
+            sm: "14px",
+            md: "19px",
+            lg: "20px",
+            xl: "21px",
+            "2xl": "22px",
+          }}
+        >
+          Connect with other travelers
+        </Text>
+        <br />
+        <ConnectWithtravellers />
+      </Box>
     </>
   );
 }
 
-export default stay;
+export default Stay;

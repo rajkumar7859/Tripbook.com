@@ -1,9 +1,16 @@
 import { Checkbox, Text } from "@chakra-ui/react";
 
-const FilterBox = () => {
+const FilterBox = ({type}) => {
   return (
-    <Checkbox w="70px" m="5px">
-      <Text fontSize="13px">Filter it</Text>
+    <Checkbox name={type} onInput={({target}) => console.log(target.name)} m="5px">
+      <Text fontSize="13px">
+        {
+          type === "Rating" ? ("> 5 Rating")
+          : type === "Reviews" ? ("> 50 Reviews")
+          : type === "Price" ? ("< 8000 Price")
+          : null
+        }
+      </Text>
     </Checkbox>
   );
 };
