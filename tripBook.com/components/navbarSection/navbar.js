@@ -58,7 +58,7 @@ function Navbar() {
             // border="2px solid green" 
             className={styles.logosize}  >
               <img
-                src="applogo.png"
+                src={"/" + "applogo.png"}
                 // border="2px solid red"
                   width="200px"
                   height="50px"
@@ -81,7 +81,7 @@ function Navbar() {
                     background="none"
                     width={25}
                     height={25}
-                    src="ind.jpeg"
+                    src={"/" + "ind.jpeg"}
                     alt="IND"
                     marginTop="4px"
                   />
@@ -93,7 +93,7 @@ function Navbar() {
                 </Link>
 
                 <Link
-                  href="/"
+                  href="/listproperty"
                   className={styles.uniqueButton}
                   width={{
                     base: "45%",
@@ -168,12 +168,12 @@ function Navbar() {
                 Car rentals
               </Link>
 
-              <Link href="/regiter" className={styles.navRow2}>
+              <Link href="#" className={styles.navRow2}>
                 <IoFlowerOutline className={styles.iconsStyles} />
                 Attractions
               </Link>
 
-              <Link href="/login" className={styles.navRow2}>
+              <Link href="#" className={styles.navRow2}>
                 <IoCarOutline className={styles.iconsStyles} />
                 Airport taxis
               </Link>

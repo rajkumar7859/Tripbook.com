@@ -29,7 +29,7 @@ const Signup = () => {
     setPassword("");
   };
 
-  const signupReq = async () => {
+  const signupUserReq = async () => {
     const res = await axios.post("http://localhost:3000/api/user/signup", {
       name,
       email,
@@ -44,8 +44,23 @@ const Signup = () => {
     }
   };
 
+  const signupDealerReq = async () => {
+    const res = await axios.post("http://localhost:3000/api/user/signup/dealer", {
+      name,
+      email,
+      password,
+    });
+    console.log(res.data);
+    if (res.data.user) {
+      setAuth({ ...auth, isReg: res.data.user });
+      console.log(auth)
+      reset();
+      router.push("/signin");
+    }
+  };
+
   return (
-    <Box>
+    <Box mt="80px">
       <Box w="90%" m="auto">
         <Heading
           mb="24px"
@@ -87,13 +102,25 @@ const Signup = () => {
             placeholder="Type in your password"
           />
           <Input
-            onClick={() => signupReq()}
+            onClick={() => signupUserReq()}
             mb="15px"
             fontSize="14px"
             color="white"
             type="submit"
             cursor="pointer"
-            value="Continue with email"
+            value="Signup as a user"
+            bg="#003B95"
+            fontWeight="500"
+            _hover={{ bg: "#265cad" }}
+          />
+          <Input
+            onClick={() => signupDealerReq()}
+            mb="15px"
+            fontSize="14px"
+            color="white"
+            type="submit"
+            cursor="pointer"
+            value="Signup as a dealer"
             bg="#003B95"
             fontWeight="500"
             _hover={{ bg: "#265cad" }}

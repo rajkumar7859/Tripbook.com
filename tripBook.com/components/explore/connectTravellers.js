@@ -36,8 +36,8 @@ function ConnectWithtravellers() {
   return (
     <SimpleGrid minChildWidth="130px" spacing="20px">
       {data &&
-        data.map((elem) => (
-          <Stack key={elem.id}>
+        data.map((elem ,i) => (
+          <Stack key={i}>
             <Box>
               <Img src={elem.image} />
               <Text> {elem.caption} </Text>

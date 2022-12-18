@@ -1,5 +1,5 @@
-import { connect } from "../../../db.connect";
-import { UserModel } from "../../../models/user.model";
+import { connect } from "../../../../db.connect";
+import { UserModel } from "../../../../models/user.model";
 import  argon2id  from "argon2";
 
 export default async function handler(req, res) {

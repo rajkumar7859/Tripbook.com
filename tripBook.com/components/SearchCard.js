@@ -105,6 +105,7 @@ const SearchCard = ({
           </Center>
         </Flex>
         <Button colorScheme={"blue"}>See availability</Button>
+        <Text>{price}</Text>
       </Flex>
     </Flex>
   );

@@ -7,10 +7,14 @@ import {IoCheckmarkDone} from "react-icons/io5";
 import {MdOutlineLocalParking} from "react-icons/md";
 import {MdOutlineRestaurant} from "react-icons/md";
 import {MdLocalAirport} from "react-icons/md";
-import {FaSwimmingPool} from "react-icons/fa";
-export default function Info(){
+  import { useRouter } from "next/router";
+  import {FaSwimmingPool} from "react-icons/fa";
+import axios from "axios";
+export default function Info({data}){
 
-
+    const { query } = useRouter();
+    const { id } = query;
+    
     return(
         <>
       {/* main css & one main Hstack */}
@@ -57,7 +61,7 @@ export default function Info(){
                         
                         </VStack>
                         <VStack >
-                        <Text fontWeight={"bold"}>₹ 209,793.30</Text>
+                        <Text fontWeight={"bold"}>₹ {data.price}</Text>
                          <Box  bgColor={"green"} color={"white"} fontSize={'12px'} padding={"5px"} >
                             No Surprises! Final price.</Box>
                         </VStack>
@@ -74,11 +78,11 @@ export default function Info(){
                 <Stack  border={"0.1px solid gray"}  w={"96%"}>
                     <HStack>
                         
-           <Image w={"210px"} h={"100%"} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQ8ZWFyH4lcQ_w26sE1n58FToPOMZZOC4xZA&usqp=CAU"/>
+           <Image w={"210px"} h={"100%"} src={data.imagescr}/>
          <VStack align={"start"}>
    <Text color={"#0071C2"} fontWeight={"bold"} fontSize={"14px"}>Hotel</Text>
-    <Text fontSize={"18px"} fontWeight={"bold"}>Sonikas Leisure</Text>
-    <Text>pintos waddo H no 661, 403515 Candolim, India</Text>
+    <Text fontSize={"18px"} fontWeight={"bold"}>{data.title}</Text>
+    <Text>{data.city}</Text>
     <SimpleGrid columns={{base:2,md:4,lg:4}} gap={3} >
         <HStack>
         <MdOutlineLocalParking  color="green"  fontSize={"18px"}/>
@@ -217,3 +221,17 @@ export default function Info(){
         </>
     )
 }
+
+
+export const getServerSideProps = async (context) => {
+    const { id } = context.query;
+  
+    const res = await axios.get(`http://localhost:3000/api/property/${id}`);
+    console.log(id);
+    console.log(res.data);
+    return {
+      props: {
+        data: res.data.property,
+      },
+    };
+  };

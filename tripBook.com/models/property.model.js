@@ -38,10 +38,10 @@ const PropertySchema = new Schema({
         required: true
     },
     reviews: {
-        type: String,
+        type: Number,
     },
     price: {
-        type: String,
+        type: Number,
         required: true
     }
 });
