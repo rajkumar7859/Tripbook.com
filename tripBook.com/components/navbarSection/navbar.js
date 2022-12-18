@@ -168,12 +168,12 @@ function Navbar() {
                 Car rentals
               </Link>
 
-              <Link href="/regiter" className={styles.navRow2}>
+              <Link href="#" className={styles.navRow2}>
                 <IoFlowerOutline className={styles.iconsStyles} />
                 Attractions
               </Link>
 
-              <Link href="/login" className={styles.navRow2}>
+              <Link href="#" className={styles.navRow2}>
                 <IoCarOutline className={styles.iconsStyles} />
                 Airport taxis
               </Link>
