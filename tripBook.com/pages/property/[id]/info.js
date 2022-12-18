@@ -17,6 +17,7 @@ export default function Info({data}){
     
     return(
         <>
+        <Navbar />
       {/* main css & one main Hstack */}
         {/* <Stack marginTop={"25px"}> */}
      <SimpleGrid columns={{base:1,lg:2}} w={"100%"} margin={"auto"} marginTop={"25px"} >
