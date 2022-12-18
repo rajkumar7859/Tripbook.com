@@ -9,7 +9,7 @@ function stay() {
   const slideImages = [
     {
       url: "https://cf.bstatic.com/xdata/images/region/square250/49646.webp?k=b7f38878b9164ee38e0b99c4d4646dbea76b7bf4add8464b1aa75e4c9d0efc6e&o=",
-      caption: "Goa",
+      caption: "goa",
       property: "5,242 properties",
     },
     {
@@ -19,7 +19,7 @@ function stay() {
     },
     {
       url: "https://cf.bstatic.com/xdata/images/city/square250/684765.webp?k=3f7d20034c13ac7686520ac1ccf1621337a1e59860abfd9cbd96f8d66b4fc138&o=",
-      caption: "New Delhi",
+      caption: "delhi",
       property: "2,912 properties",
     },
     {

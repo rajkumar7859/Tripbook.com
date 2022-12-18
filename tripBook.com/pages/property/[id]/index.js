@@ -22,11 +22,13 @@ import {
   import SearchForm from "../../../components/SearchForm";
   import { useRouter } from "next/router";
   import axios from "axios";
+import Link from "next/link";
   // import Navbar from '../../components/navbarSection/navbar';
   
   const HotelDetails = ({ data }) => {
     const { query } = useRouter();
     const { id } = query;
+    console.log(id)
   
     return (
       <Box>
@@ -164,9 +166,11 @@ import {
                   color="#0071c2"
                 >
                   <AiOutlineHeart cursor="pointer" /> <HiShare cursor="pointer" />
+                  <Link style={{textDecoration: "none"}} href={`/property/${id}/info`}>
                   <Button bg="#0071c2" color="white" _hover={{ bg: "#014778" }}>
                     Reserve
                   </Button>
+                  </Link>
                 </Flex>
               </Flex>
   
@@ -246,6 +250,7 @@ import {
             <Text mt="5px">{"Buffer"}</Text>
   
             <Box lineHeight="4rem">
+            <Link style={{textDecoration: "none"}} href={`/property/${id}/info`}>
               <Button
                 w="100%"
                 bg="#0071c2"
@@ -254,6 +259,7 @@ import {
               >
                 Reserve
               </Button>
+              </Link>
               <Button w="100%" color="#0071c2" border="1px solid #0071c2">
                 Save the property
               </Button>

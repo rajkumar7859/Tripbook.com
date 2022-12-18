@@ -10,6 +10,7 @@ import {MdLocalAirport} from "react-icons/md";
   import { useRouter } from "next/router";
   import {FaSwimmingPool} from "react-icons/fa";
 import axios from "axios";
+import Navbar from "../../../components/navbarSection/navbar"
 export default function Info({data}){
 
     const { query } = useRouter();
