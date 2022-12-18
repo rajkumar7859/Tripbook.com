@@ -15,10 +15,10 @@ import {
   Portal,
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
-import { useState } from "react";
-import axios from "axios";
+import { useContext, useState } from "react";
 import DatePicker from "../DatePicker";
 import Link from "next/link"; 
+import { GuestContext } from "../../context/GuestContext";
 
 const SearchBox = () => {
   const [inputData , setInputData] = useState("");
@@ -129,28 +129,39 @@ const SearchBox = () => {
 export default SearchBox;
 
 function Pop() {
-  const [adult, setAdult] = useState(0);
-  const [children, setchildren] = useState(0);
-  const [room, setroom] = useState(0);
-  const handleIncre = () => {
-    setAdult((prev) => prev + 1);
-  };
+  const {
+    adult,
+    handleIncre,
+    handledec,
+    childrens,
+    handlechildrenIncre,
+    handlechildrenDec,
+    room,
+    handleroomIncre,
+    handleroomDec,
+  } = useContext(GuestContext);
+  // const [adult, setAdult] = useState(0);
+  // const [children, setchildren] = useState(0);
+  // const [room, setroom] = useState(0);
+  // const handleIncre = () => {
+  //   setAdult((prev) => prev + 1);
+  // };
 
-  const handledec = () => {
-    setAdult((prev) => prev - 1);
-  };
-  const handlechildrenIncre = () => {
-    setchildren((prev) => prev + 1);
-  };
-  const handlechildrenDec = () => {
-    setchildren((prev) => prev - 1);
-  };
-  const handleroomIncre = () => {
-    setroom((prev) => prev + 1);
-  };
-  const handleroomDec = () => {
-    setroom((prev) => prev - 1);
-  };
+  // const handledec = () => {
+  //   setAdult((prev) => prev - 1);
+  // };
+  // const handlechildrenIncre = () => {
+  //   setchildren((prev) => prev + 1);
+  // };
+  // const handlechildrenDec = () => {
+  //   setchildren((prev) => prev - 1);
+  // };
+  // const handleroomIncre = () => {
+  //   setroom((prev) => prev + 1);
+  // };
+  // const handleroomDec = () => {
+  //   setroom((prev) => prev - 1);
+  // };
   return (
     <Popover>
       <PopoverTrigger>
@@ -170,9 +181,9 @@ function Pop() {
           borderRight={"4px solid #febb02"}
           gap="10px"
         >
-          <Text>{adult} adult</Text>
-          <Text>{children} children</Text>
-          <Text>{room} rooms</Text>
+          <Text mt="0 !important">{adult} adults</Text>
+          <Text mt="0 !important">{childrens} children</Text>
+          <Text mt="0 !important">{room} rooms</Text>
         </Box>
       </PopoverTrigger>
       <Portal>
@@ -202,14 +213,14 @@ function Pop() {
           <PopoverBody display={"flex"} justifyContent={"space-around"}>
             <Text width={"40%"}>Children</Text>
             <Button
-              disabled={children === 0}
+              disabled={childrens === 0}
               onClick={handlechildrenDec}
               border={"1px solid blue"}
               color={"black"}
             >
               -
             </Button>
-            <Text marginTop={"5px"}>{children}</Text>
+            <Text marginTop={"5px"}>{childrens}</Text>
             <Button
               onClick={handlechildrenIncre}
               border={"1px solid blue"}
