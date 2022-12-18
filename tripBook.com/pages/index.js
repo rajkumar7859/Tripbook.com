@@ -4,8 +4,7 @@ import SearchBox from "../components/searchBox/searchBox";
 import { Box, Button, Image, Text } from "@chakra-ui/react";
 import { Nextrip } from "../components/explore/nextTrip";
 import ConnectWithtravellers from "../components/explore/connectTravellers";
-  // import Navbar from "../components/navbarSection/navbar"
-// import Footer  from "../components/Footer";
+  import Navbar from "../components/navbarSection/navbar"
 function stay() {      
   const slideImages = [
     {
@@ -162,7 +161,7 @@ function stay() {
 
   return (
     <>
-    {/* <Navbar/>   */}
+    <Navbar/>  
       <BgComponent
         heading="The joy of home anywhere in the world"
         subHeading="Easy booking, easy living"

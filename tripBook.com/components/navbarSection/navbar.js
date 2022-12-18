@@ -93,7 +93,7 @@ function Navbar() {
                 </Link>
 
                 <Link
-                  href="/"
+                  href="/listproperty"
                   className={styles.uniqueButton}
                   width={{
                     base: "45%",

@@ -1,4 +1,5 @@
 import { Slideshow } from "../components/explore/slideShow";
+import Navbar from "../components/navbarSection/navbar";
 import SearchBox from "../components/searchBox/searchBox";
 
 function flights() {
@@ -32,6 +33,7 @@ function flights() {
 
   return (
     <div>
+      <Navbar />
       <SearchBox />
       <Slideshow
         image={stay}
