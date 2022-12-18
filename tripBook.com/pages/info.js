@@ -8,11 +8,13 @@ import {MdOutlineLocalParking} from "react-icons/md";
 import {MdOutlineRestaurant} from "react-icons/md";
 import {MdLocalAirport} from "react-icons/md";
 import {FaSwimmingPool} from "react-icons/fa";
+import Navbar from "../components/navbarSection/navbar";
 export default function Info(){
 
 
     return(
         <>
+        <Navbar />
       {/* main css & one main Hstack */}
         {/* <Stack marginTop={"25px"}> */}
      <SimpleGrid columns={{base:1,lg:2}} w={"100%"} margin={"auto"} marginTop={"25px"} >
