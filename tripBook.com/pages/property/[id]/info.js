@@ -11,17 +11,28 @@ import {MdLocalAirport} from "react-icons/md";
   import {FaSwimmingPool} from "react-icons/fa";
 import axios from "axios";
 import Navbar from "../../../components/navbarSection/navbar"
+import LoadingScreen from "../../../components/pre_loader/loadingScreen";
+import { useEffect, useState } from "react";
+
+
 export default function Info({data}){
+
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+      setLoading(true);
+  }, []);
+
 
     const { query } = useRouter();
     const { id } = query;
     
     return(
         <>
+      {loading?<>
+(
         <Navbar />
-      {/* main css & one main Hstack */}
-        {/* <Stack marginTop={"25px"}> */}
-     <SimpleGrid columns={{base:1,lg:2}} w={"100%"} margin={"auto"} marginTop={"25px"} >
+        <SimpleGrid columns={{base:1,lg:2}} w={"100%"} margin={"auto"} marginTop={"25px"} >
       
      <VStack margin={"auto"} marginTop={0} w={{base:"full",lg:"60%"}} >
                 <Box border={"0.1px solid gray"}  w={"96%"} >
@@ -108,8 +119,6 @@ export default function Info({data}){
         
         <Text fontSize={'14px'}>Swimming </Text>
 </HStack>
-        
-       
         
         
     </SimpleGrid>
@@ -218,8 +227,8 @@ export default function Info({data}){
             </VStack>
 
             
-            </SimpleGrid>
-        {/* </Stack> */}
+            </SimpleGrid>) </>:(< LoadingScreen /> )
+      }
         </>
     )
 }

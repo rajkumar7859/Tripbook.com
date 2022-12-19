@@ -8,8 +8,10 @@ import {
   HStack,
   Center,
 } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import { AiFillStar, AiFillLike } from "react-icons/ai";
 import { BsHeart } from "react-icons/bs";
+import LoadingScreen from "./pre_loader/loadingScreen";
 
 const SearchCard = ({
   id,
@@ -26,8 +28,18 @@ const SearchCard = ({
   imagescr,
   city,
 }) => {
+
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+      setLoading(true);
+  }, []);
+
   return (
-    <Flex
+
+<>
+{loading?
+    (<Flex
       w="100%"
       p="15px"
       border="1px solid #C6C6C6"
@@ -107,7 +119,9 @@ const SearchCard = ({
         <Button colorScheme={"blue"}>See availability</Button>
         <Text>{price}</Text>
       </Flex>
-    </Flex>
+    </Flex>):( <LoadingScreen /> )
+}
+    </>
   );
 };
 

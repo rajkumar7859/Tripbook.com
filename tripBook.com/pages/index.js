@@ -162,6 +162,7 @@ function stay() {
   return (
     <>
     <Navbar/>  
+    
       <BgComponent
         heading="The joy of home anywhere in the world"
         subHeading="Easy booking, easy living"

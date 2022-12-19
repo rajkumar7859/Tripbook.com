@@ -19,16 +19,12 @@
 }
 
 .authLink {
-  /* height: 20%; */
-  /* background-color: #edefed;  */
   border-radius: 10px;
-  /* color:#004cb8;
-  padding: 8px;
-  text-align: center;
-  margin-top: -50px;
-  text-decoration: none;   */
-
   font-size: 15px;
+}
+.authLink:hover {
+text-decoration: none;
+color: black;
 }
 .uniqueButton {
   /* height: 20%; */
@@ -42,6 +38,11 @@
   text-decoration: none;
   font-weight: 600;
   font-size: 15px;
+}
+.uniqueButton:hover {
+ color: white;
+ background-color: #022c66;
+ text-decoration: none;
 }
 
 .navRow2 {
@@ -59,7 +60,9 @@
 }
 
 .navRow2:hover {
-  background-color: #599af5;
+  background-color: #03275a;
+  color: white;
+  text-decoration: none;
 }
 
 .navRow2One {
@@ -71,6 +74,11 @@
   padding: 12px;
   border-radius: 20px;
   gap: 3px;
+}
+.navRow2One:hover {
+    color: white;
+    background-color: #022c66;
+    text-decoration: none;
 }
 
 .iconsStyles1 {
@@ -108,11 +116,7 @@
   /* border: 2px solid yellow; */
   margin-top: 12px;
 }
-/* .authLink{
 
- } */
-
-/* mobile..... */
 
 @media only screen and (max-width: 650px) {
   .stackBox {
