@@ -140,28 +140,7 @@ function Pop() {
     handleroomIncre,
     handleroomDec,
   } = useContext(GuestContext);
-  // const [adult, setAdult] = useState(0);
-  // const [children, setchildren] = useState(0);
-  // const [room, setroom] = useState(0);
-  // const handleIncre = () => {
-  //   setAdult((prev) => prev + 1);
-  // };
-
-  // const handledec = () => {
-  //   setAdult((prev) => prev - 1);
-  // };
-  // const handlechildrenIncre = () => {
-  //   setchildren((prev) => prev + 1);
-  // };
-  // const handlechildrenDec = () => {
-  //   setchildren((prev) => prev - 1);
-  // };
-  // const handleroomIncre = () => {
-  //   setroom((prev) => prev + 1);
-  // };
-  // const handleroomDec = () => {
-  //   setroom((prev) => prev - 1);
-  // };
+  
   return (
     <Popover>
       <PopoverTrigger>
