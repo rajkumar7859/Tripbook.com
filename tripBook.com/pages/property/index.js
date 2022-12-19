@@ -131,7 +131,7 @@ const Property = ({ data }) => {
 export const getServerSideProps = async (context) => {
   const { city, sortBy, filterBy } = context.query;
   const res = await axios.get(
-    `/api/property?city=${city}&sortBy=${sortBy}&filterBy=${filterBy}`
+    `https://tripbook.vercel.app/api/property?city=${city}&sortBy=${sortBy}&filterBy=${filterBy}`
   );
 
   return {
