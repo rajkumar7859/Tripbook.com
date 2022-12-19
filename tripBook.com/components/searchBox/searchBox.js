@@ -27,7 +27,7 @@ const SearchBox = () => {
 
   const getData=()=>{
     router.push({
-      pathname:router.asPath,
+      pathname:router.asPath +"/property",
       query:{
         city:inputData
       }
