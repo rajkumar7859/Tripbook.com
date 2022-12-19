@@ -30,7 +30,7 @@ import { useRouter } from "next/router";
 import { FaSwimmingPool } from "react-icons/fa";
 import axios from "axios";
 import Navbar from "../../../components/navbarSection/navbar";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { GuestContext } from "../../../context/GuestContext";
 import Link from "next/link";
 import LoadingScreen from "../../../components/pre_loader/loadingScreen";
@@ -51,15 +51,12 @@ export default function Info({ data }) {
   const [request, setRequest] = useState("");
   const [floor, setFloor] = useState("");
   const [guest, setGuest] = useState("");
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+}, []);
 
   function callSubmit() {
-
-    const [loading, setLoading] = useState(false);
-
-    useEffect(() => {
-        setLoading(true);
-    }, []);
-
     if (
       name === "" ||
       email === "" ||
@@ -93,7 +90,7 @@ export default function Info({ data }) {
 
   return (
     <>
-    { loading?(<>
+    {loading?(<>
 
       <Navbar />
 

@@ -43,7 +43,7 @@ import LoadingScreen from "../../../components/pre_loader/loadingScreen";
         {/* ********************************************************************************************* */}
 { loading?
   <>
-      ( <Navbar />
+       <Navbar />
         <Accordion allowToggle>
           <AccordionItem bg="#fff0e0" border="none" color="black" p="0.5rem">
             <Text textAlign="left" fontSize="lg" fontWeight="700">
