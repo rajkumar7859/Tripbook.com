@@ -19,6 +19,7 @@ import {
   SimpleGrid,
   Grid,
   Center,
+  useToast
 } from "@chakra-ui/react";
 import { MdOutlineCreditCardOff } from "react-icons/md";
 import { IoCheckmarkDone } from "react-icons/io5";
@@ -29,8 +30,9 @@ import { useRouter } from "next/router";
 import { FaSwimmingPool } from "react-icons/fa";
 import axios from "axios";
 import Navbar from "../../../components/navbarSection/navbar";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { GuestContext } from "../../../context/GuestContext";
+import Link from "next/link";
 export default function Info({ data }) {
   const { date, adult, childrens, room } = useContext(GuestContext);
   let CheckIn = date[0].toString().split(" ");
@@ -66,8 +68,8 @@ export default function Info({ data }) {
       });
     }
     toast({
-      title: "Details has been saved successfully.",
-      description: "Enjoy our services.",
+      title: "Booking Succesfull.",
+      description: "Enjoy our stay!",
       status: "success",
       duration: 3400,
       isClosable: true,
@@ -413,13 +415,7 @@ export default function Info({ data }) {
           </Button>
             <Link style={{ textDecoration: "none" }} href="/">
               <Button
-                onClick={() => setLoading(true)}
-                fontSize={"25px"}
-                w={"180px"}
-                h={"38px"}
-                color={"white"}
-                border={"0px"}
-                colorScheme={"blue"}
+                colorScheme="telegram"
               >
                 Home
               </Button>{" "}
