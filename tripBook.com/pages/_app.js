@@ -4,7 +4,7 @@ import AuthContextProvider from '../context/AuthContextProvider';
 import Footer from '../components/Footer';
 import React ,{ useState , useEffect } from "react"
 import LoadingScreen from '../components/pre_loader/loadingScreen';
-import {ToastContainer} from 'react-nextjs-toast';
+// import {ToastContainer} from 'react-nextjs-toast';
 import GuestContextProvider from "../context/GuestContext";
 
 
@@ -29,7 +29,7 @@ function MyApp({ Component, pageProps }) {
       <AuthContextProvider>
           <GuestContextProvider>
       <Component {...pageProps} />
-      <ToastContainer align={"center"} position={"top"} id="toast-comp-3"/>
+      {/* <ToastContainer align={"center"} position={"top"} id="toast-comp-3"/> */}
       <Footer />
         </GuestContextProvider>
       </AuthContextProvider>

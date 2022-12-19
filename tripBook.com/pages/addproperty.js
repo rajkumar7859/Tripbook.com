@@ -14,7 +14,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { BsQuestionCircle } from 'react-icons/bs'
 import { CgProfile } from 'react-icons/cg'
-import { toast,} from 'react-nextjs-toast'
+// import { toast,} from 'react-nextjs-toast'
 import LoadingScreen from '../components/pre_loader/loadingScreen';
  
 
@@ -34,10 +34,11 @@ import LoadingScreen from '../components/pre_loader/loadingScreen';
 
    const postProp = async() => {
     const res = await axios.post(`/api/property`, {title, imagescr, city});
-    toast.notify(`Property added successfull👍` ,{
-      duration: 5,
-      type: "success"
-    })
+    // toast.notify(`Property added successfull👍` ,{
+    //   duration: 5,
+    //   type: "success"
+    // })
+    console.log(res.data);
    }
 
     return (
