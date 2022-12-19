@@ -30,7 +30,7 @@ const Property = ({ data }) => {
 
   useEffect(() => {
     router.push({
-      pathname: "/hotel",
+      pathname: "/property",
       query: { city: city, sortBy: sort },
     });
   }, [sort]);
