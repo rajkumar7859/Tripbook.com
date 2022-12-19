@@ -62,15 +62,6 @@ its Fully Responsive booking web application that allows you to book hotels,flig
 ## Glimpses of TripBook.com 🙈 :
 
 
-<a href="https://ibb.co/XWkKfkT"><img src="https://i.ibb.co/Twq7Dq5/Screenshot-11.png" alt="Screenshot-11" border="0"></a>
-<a href="https://ibb.co/fQppS69"><img src="https://i.ibb.co/wYWWLG7/Screenshot-12.png" alt="Screenshot-12" border="0"></a>
-<a href="https://ibb.co/k280znv"><img src="https://i.ibb.co/m5qtdsg/Screenshot-13.png" alt="Screenshot-13" border="0"></a>
-<a href="https://ibb.co/Hxh8dY0"><img src="https://i.ibb.co/SdfCr02/Screenshot-14.png" alt="Screenshot-14" border="0"></a>
-<a href="https://ibb.co/TgxwT6R"><img src="https://i.ibb.co/gRLr7Nw/Screenshot-15.png" alt="Screenshot-15" border="0"></a>
-<a href="https://ibb.co/3S0zGfm"><img src="https://i.ibb.co/HGrd1NT/Screenshot-16.png" alt="Screenshot-16" border="0"></a>
-<a href="https://ibb.co/LNpF9SX"><img src="https://i.ibb.co/6XsMDY7/Screenshot-17.png" alt="Screenshot-17" border="0"></a>
-<a href="https://ibb.co/gV6Q6sf"><img src="https://i.ibb.co/74bBb7Z/Screenshot-18.png"
-
 <table>
   <tr>
     <td><img maxW="50%" src="https://i.ibb.co/Twq7Dq5/Screenshot-11.png"  /></td>
