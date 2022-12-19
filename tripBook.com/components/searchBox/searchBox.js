@@ -100,7 +100,7 @@ const SearchBox = () => {
         </Box>
         {/*  */}
         <Pop />
-        <Link style={{textDecoration: "none"}} href={`/property?city=${inputData}`}>
+        <Link style={{textDecoration: "none"}} href={`/hotel?city=${inputData}`}>
         <Button
           paddingLeft={"60px"}
           paddingRight={"60px"}
