@@ -22,17 +22,17 @@ export default async function handler(req, res) {
 
         const token = jwt.sign(
           { id: user._id, name: user.name, role: user.role },
-          process.env.tsec,
+          process.env.TSEC,
           {
-            expiresIn: process.env.tl,
+            expiresIn: process.env.TL,
           }
         );
 
         const refreshToken = jwt.sign(
           { id: user._id, name: user.name, role: user.role },
-          process.env.rtsec,
+          process.env.RTSEC,
           {
-            expiresIn: process.env.rtl,
+            expiresIn: process.env.RTL,
           }
         );
 
