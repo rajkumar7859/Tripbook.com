@@ -19,9 +19,21 @@ import { useContext, useState } from "react";
 import DatePicker from "../DatePicker";
 import Link from "next/link"; 
 import { GuestContext } from "../../context/GuestContext";
+import { useRouter } from "next/router";
 
 const SearchBox = () => {
   const [inputData , setInputData] = useState("");
+  const router=useRouter()
+
+  const getData=()=>{
+    router.push({
+      pathname:"/property",
+      query:{
+        city:inputData
+      }
+    })
+  }
+
   return (
     <>
       <Box
@@ -100,8 +112,9 @@ const SearchBox = () => {
         </Box>
         {/*  */}
         <Pop />
-        <Link style={{textDecoration: "none"}} href={`/hotel?city=${inputData}`}>
+        {/* <Link style={{textDecoration: "none"}} href={`/property?city=${inputData}`}> */}
         <Button
+        onClick={()=>getData()}
           paddingLeft={"60px"}
           paddingRight={"60px"}
           height={"50px"}
@@ -120,7 +133,7 @@ const SearchBox = () => {
         >
           Search
         </Button>
-        </Link>
+        {/* </Link> */}
         
       </Box>
     </>
