@@ -39,12 +39,52 @@ export default function Info({ data }) {
 
   const { query } = useRouter();
   const { id } = query;
+  const toast = useToast();
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [email1, setEmail1] = useState("");
+  const [guestName, setGuestName] = useState("");
+  const [request, setRequest] = useState("");
+  const [floor, setFloor] = useState("");
+  const [guest, setGuest] = useState("");
+
+  function callSubmit() {
+    if (
+      name === "" ||
+      email === "" ||
+      email1 === "" ||
+      guestName === "" ||
+      request === ""
+    ) {
+      return toast({
+        title: "Please fill all the required fields.",
+        description: " All fields are mandatory.",
+        status: "warning",
+        duration: 3400,
+        isClosable: true,
+      });
+    }
+    toast({
+      title: "Details has been saved successfully.",
+      description: "Enjoy our services.",
+      status: "success",
+      duration: 3400,
+      isClosable: true,
+    });
+    setName("");
+    setEmail("");
+    setEmail1("");
+    setGuestName("");
+    setRequest("");
+    setGuest("");
+    setFloor("");
+  }
 
   return (
     <>
       <Navbar />
-      {/* main css & one main Hstack */}
-      {/* <Stack marginTop={"25px"}> */}
+
       <SimpleGrid
         columns={{ base: 1, lg: 2 }}
         w={"100%"}
@@ -249,6 +289,8 @@ export default function Info({ data }) {
             <Box paddingLeft={"17px"}>
               <FormLabel fontWeight={"bold"}>Full name *</FormLabel>
               <Input
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 h={"33px"}
                 w={{ base: "74%", md: "55%", lg: "65%" }}
                 placeholder="Enter your full name"
@@ -256,6 +298,8 @@ export default function Info({ data }) {
               />
               <FormLabel fontWeight={"bold"}>Email Address *</FormLabel>
               <Input
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 bgColor={"white"}
                 h={"33px"}
                 w={{ base: "74%", md: "55%", lg: "65%" }}
@@ -266,6 +310,8 @@ export default function Info({ data }) {
                 Confirm Email Address *
               </FormLabel>
               <Input
+                value={email1}
+                onChange={(e) => setEmail1(e.target.value)}
                 bgColor={"white"}
                 h={"33px"}
                 w={{ base: "74%", md: "55%", lg: "65%" }}
@@ -278,6 +324,8 @@ export default function Info({ data }) {
                 </FormLabel>
 
                 <Select
+                  value={guest}
+                  onChange={(e) => setGuest(e.target.value)}
                   bgColor={"white"}
                   placeholder="1"
                   fontSize={"15px"}
@@ -293,6 +341,8 @@ export default function Info({ data }) {
                 Full guest name *
               </FormLabel>
               <Input
+                value={guestName}
+                onChange={(e) => setGuestName(e.target.value)}
                 bgColor={"white"}
                 w={{ base: "74%", md: "55%", lg: "65%" }}
                 placeholder="Please enter full guest name"
@@ -306,6 +356,8 @@ export default function Info({ data }) {
 
                 <Select
                   w={"170px"}
+                  value={floor}
+                  onChange={(e) => setFloor(e.target.value)}
                   bgColor={"white"}
                   placeholder="No preference"
                   fontSize={"15px"}
@@ -342,14 +394,37 @@ export default function Info({ data }) {
               <Text paddingTop={"15px"} fontWeight={"bold"}>
                 Please write your requests in English or Hindi.
               </Text>
-              <Textarea bgColor={"white"} w={"90%"} h={"90px"} size="sm" />
+              <Textarea
+                value={request}
+                onChange={(e) => setRequest(e.target.value)}
+                bgColor={"white"}
+                w={"90%"}
+                h={"90px"}
+                size="sm"
+              />
             </VStack>
           </Stack>
+          <HStack marginBottom={"25px"}>
           <Button
             colorScheme="telegram"
+            onClick={callSubmit}
           >
             Submit
           </Button>
+            <Link style={{ textDecoration: "none" }} href="/">
+              <Button
+                onClick={() => setLoading(true)}
+                fontSize={"25px"}
+                w={"180px"}
+                h={"38px"}
+                color={"white"}
+                border={"0px"}
+                colorScheme={"blue"}
+              >
+                Home
+              </Button>{" "}
+            </Link>
+          </HStack>
         </VStack>
       </SimpleGrid>
       {/* </Stack> */}
@@ -366,6 +441,6 @@ export const getServerSideProps = async (context) => {
   return {
     props: {
       data: res.data.property,
-    },
-  };
-};
+    }
+  }
+}
