@@ -3,10 +3,21 @@ import { CgProfile } from "react-icons/cg";
 import { VscDebugRestartFrame } from "react-icons/vsc";
 import { BsQuestionCircle } from "react-icons/bs";
 import Link from "next/link";
+import LoadingScreen from "../components/pre_loader/loadingScreen";
+import { useEffect, useState } from "react";
 
 const ListProperty = () => {
+
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+      setLoading(true);
+  }, []);
+
   return (
-    <Box bg="#f9f9fa" pb="6rem">
+    <>
+    {loading?
+    (<Box bg="#f9f9fa" pb="6rem">
       <Box>
         <Box
           p="1rem 3rem 1rem 2rem"
@@ -85,14 +96,28 @@ const ListProperty = () => {
                 bg="#0071c2"
                 _hover={{ bg: "#014778" }}
                 color="white"
+                mb="15px"
               >
                 List your property
+              </Button>
+            </Link>
+            <Link href="/">
+              <Button
+                w="100%"
+                border="1px solid #0071c2"
+                textDecoration="none"
+                _hover={{ bg: "#b7cedf" }}
+                color="#014778"
+                mb="15px"
+              >
+                Go Back
               </Button>
             </Link>
           </Box>
         </Box>
       </Box>
-    </Box>
+    </Box>):( <LoadingScreen /> )}
+    </>
   );
 };
 

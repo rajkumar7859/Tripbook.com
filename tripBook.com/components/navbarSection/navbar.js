@@ -45,6 +45,7 @@ function Navbar() {
         bg="#003580"
       >
         <Box
+      
             // border="3px solid green"
           w="90%"
           color="#262626"

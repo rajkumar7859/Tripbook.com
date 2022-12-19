@@ -8,8 +8,10 @@ import {
   HStack,
   Center,
 } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import { AiFillStar, AiFillLike } from "react-icons/ai";
 import { BsHeart } from "react-icons/bs";
+import LoadingScreen from "./pre_loader/loadingScreen";
 import NextLink from 'next/link'
 
 const SearchCard = ({
@@ -27,7 +29,16 @@ const SearchCard = ({
   imagescr,
   city,
 }) => {
+
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+      setLoading(true);
+  }, []);
+
   return (
+    <>
+   {loading?(
     <Flex
     key={id}
       w="100%"
@@ -111,7 +122,9 @@ const SearchCard = ({
         </Flex>
         <Text fontWeight="bold">Price/day ₹ {price}</Text>
       </Flex>
-    </Flex>
+    </Flex>):( <LoadingScreen /> )
+}
+    </>
   );
 };
 
