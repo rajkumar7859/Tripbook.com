@@ -434,7 +434,6 @@ export default function Info({ data }) {
           </HStack>
         </VStack>
       </SimpleGrid>
-      {/* </Stack> */}
 
                   </> ):( <LoadingScreen />)}
     </>
