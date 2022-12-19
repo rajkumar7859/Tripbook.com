@@ -1,6 +1,6 @@
 import { Box, HStack, VStack,Text,Divider, Stack,Image ,Radio, RadioGroup,
     FormControl,FormLabel,FormErrorMessage,FormHelperText,Input,Select ,Textarea, Button, SimpleGrid, Grid,
-  Center
+  Center,useToast, Link
 } from "@chakra-ui/react";
 import {MdOutlineCreditCardOff} from "react-icons/md";
 import {IoCheckmarkDone} from "react-icons/io5";
@@ -11,11 +11,66 @@ import {MdLocalAirport} from "react-icons/md";
   import {FaSwimmingPool} from "react-icons/fa";
 import axios from "axios";
 import Navbar from "../../../components/navbarSection/navbar"
+import { useState } from "react";
+
+
 export default function Info({data}){
 
     const { query } = useRouter();
     const { id } = query;
+    const toast=useToast();
+    // useState
+    const [name,setName]=useState("");
+    const [email,setEmail]=useState("");
+    const [email1,setEmail1]=useState("");
+    const [guestName,setGuestName]=useState("");
+    const [request,setRequest]=useState("");
+    const [floor,setFloor]=useState("");
+    const [guest,setGuest]=useState("");
+    // const [loading,setLoading]=useState(false)
+    //  
+    function callSubmit(){
     
+      if(name===""||email===""||email1===""||guestName===""||request===""){
+        return toast({
+          title: 'Please fill all the required fields.',
+        description: " All fields are mandatory.",
+        status: 'warning',
+        duration: 3400,
+        isClosable: true,
+        })
+
+      }
+      toast({
+        title: 'Details has been saved successfully.',
+        description: "Enjoy our services.",
+        status: 'success',
+        duration: 3400,
+        isClosable: true,
+      })
+      setName("");
+      setEmail("");
+      setEmail1("");
+      setGuestName("");
+      setRequest("");
+      setGuest("");
+      setFloor("");
+    
+  
+    
+    }
+  //   if(loading){
+  //     return (
+  //       <>
+  //       <Box  marginTop={"160px"}  >
+  //  <Skeleton  startColor='pink.500' endColor='orange.500' height='60px' />
+  //  <Skeleton marginTop={"20px"} startColor='pink.500' endColor='orange.500' height='60px' />
+  //  <Skeleton  marginTop={"20px"}  startColor='pink.500' endColor='orange.500' height='60px' />
+  //  </Box>
+  //       </>
+  //     )
+  //   }
+
     return(
         <>
         <Navbar />
@@ -158,19 +213,19 @@ export default function Info({data}){
               
               <Box paddingLeft={"17px"}>
               <FormLabel fontWeight={"bold"}>Full name *</FormLabel>
-                <Input h={"33px"}  w={{base:"74%",md:"55%",lg:"65%"}} placeholder="Enter your full name"      bgColor={"white"}/>
+                <Input  value={name} onChange={(e)=>setName(e.target.value)} h={"33px"}  w={{base:"74%",md:"55%",lg:"65%"}} placeholder="Enter your full name"      bgColor={"white"}/>
                <FormLabel fontWeight={"bold"}>Email Address *</FormLabel>
-                <Input      bgColor={"white"} h={"33px"}  w={{base:"74%",md:"55%",lg:"65%"}} placeholder="Enter your email address"/>
+                <Input value={email} onChange={(e)=>setEmail(e.target.value)}      bgColor={"white"} h={"33px"}  w={{base:"74%",md:"55%",lg:"65%"}} placeholder="Enter your email address"/>
 
                 <FormLabel paddingTop={"25px"} fontWeight={"bold"}>Confirm Email Address *</FormLabel>
-                <Input      bgColor={"white"} h={"33px"}  w={{base:"74%",md:"55%",lg:"65%"}} placeholder="Enter your email address"/>
+                <Input value={email1} onChange={(e)=>setEmail1(e.target.value)}      bgColor={"white"} h={"33px"}  w={{base:"74%",md:"55%",lg:"65%"}} placeholder="Enter your email address"/>
 
 <HStack marginTop={"25px"}>
 
 <FormLabel fontSize={"17px"}  fontWeight={"bold"}>Guests:</FormLabel>
                
              
-<Select      bgColor={"white"} placeholder='1'  fontSize={"15px"} height={"32px"} w={"70px"}>
+<Select value={guest}  onChange={(e)=>setGuest(e.target.value)}     bgColor={"white"} placeholder='1'  fontSize={"15px"} height={"32px"} w={"70px"}>
 
   <option value='option2'> 2</option>
   <option value='option3'> 3</option>
@@ -179,7 +234,7 @@ export default function Info({data}){
 </Select >
 </HStack>
 <FormLabel paddingTop={"25px"} fontWeight={"bold"}>Full guest name *</FormLabel>
-                <Input      bgColor={"white"}  w={{base:"74%",md:"55%",lg:"65%"}}placeholder="Please enter full guest name" h={"33px"}
+                <Input value={guestName} onChange={(e)=>setGuestName(e.target.value)}     bgColor={"white"}  w={{base:"74%",md:"55%",lg:"65%"}}placeholder="Please enter full guest name" h={"33px"}
            
                 />   
 
@@ -189,7 +244,7 @@ export default function Info({data}){
 <FormLabel fontSize={"17px"}  fontWeight={"bold"}>Floor preference</FormLabel>
                
              
-<Select w={"170px"}     bgColor={"white"} placeholder='No preference' fontSize={"15px"} height={"39px"}  >
+<Select w={"170px"}  value={floor} onChange={(e)=>setFloor(e.target.value)}     bgColor={"white"} placeholder='No preference' fontSize={"15px"} height={"39px"}  >
  
   <option value='High floor'> High floor</option>
   <option value='Ground floor'> Ground floor</option>
@@ -210,11 +265,16 @@ export default function Info({data}){
                              your needs. You can always make a special request after your booking is complete!</Text>
 
                              <Text paddingTop={"15px"} fontWeight={"bold"}>Please write your requests in English or Hindi.</Text>
-                             <Textarea  bgColor={"white"} w={"90%"} h={"90px"} size='sm' />
+                             <Textarea value={request}  onChange={(e)=>setRequest(e.target.value)}  bgColor={"white"} w={"90%"} h={"90px"} size='sm' />
                     </VStack>
                   
                 </Stack>
-                <Button marginBottom={'25px'} fontSize={"25px"} w={'180px'} h={"38px"} color={"white"} border={"0px"} bgColor={"#0071C2"}>Submit</Button>
+                <HStack marginBottom={'25px'}>
+                <Button  fontSize={"25px"} w={'180px'} h={"38px"} color={"white"} border={"0px"} onClick={callSubmit} colorScheme={"blue"}>Submit</Button>
+             <Link style={{textDecoration: "none"}}  href="/">
+   <Button onClick={()=>setLoading(true)}
+    fontSize={"25px"} w={'180px'} h={"38px"} color={"white"} border={"0px"} colorScheme={"blue"}>Home</Button> </Link>
+                </HStack>
             </VStack>
 
             
