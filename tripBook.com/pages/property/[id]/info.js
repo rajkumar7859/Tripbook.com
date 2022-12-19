@@ -33,6 +33,7 @@ import Navbar from "../../../components/navbarSection/navbar";
 import { useContext, useState } from "react";
 import { GuestContext } from "../../../context/GuestContext";
 import Link from "next/link";
+import LoadingScreen from "../../../components/pre_loader/loadingScreen";
 export default function Info({ data }) {
   const { date, adult, childrens, room } = useContext(GuestContext);
   let CheckIn = date[0].toString().split(" ");
@@ -52,6 +53,13 @@ export default function Info({ data }) {
   const [guest, setGuest] = useState("");
 
   function callSubmit() {
+
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        setLoading(true);
+    }, []);
+
     if (
       name === "" ||
       email === "" ||
@@ -85,13 +93,15 @@ export default function Info({ data }) {
 
   return (
     <>
+    { loading?(<>
+
       <Navbar />
 
       <SimpleGrid
-        columns={{ base: 1, lg: 2 }}
-        w={"100%"}
-        margin={"auto"}
-        marginTop={"25px"}
+      columns={{ base: 1, lg: 2 }}
+      w={"100%"}
+      margin={"auto"}
+      marginTop={"25px"}
       >
         <VStack margin={"auto"} marginTop={0} w={{ base: "full", lg: "60%" }}>
           <Box border={"0.1px solid gray"} w={"96%"}>
@@ -203,6 +213,7 @@ export default function Info({ data }) {
             </HStack>
           </Box>
         </VStack>
+   
 
         {/* 2nd vstack */}
         <VStack
@@ -424,6 +435,8 @@ export default function Info({ data }) {
         </VStack>
       </SimpleGrid>
       {/* </Stack> */}
+
+                  </> ):( <LoadingScreen />)}
     </>
   );
 }

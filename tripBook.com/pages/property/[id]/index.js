@@ -18,14 +18,22 @@ import {
   import { AiFillLike, AiOutlineHeart } from "react-icons/ai";
   import { BsTags } from "react-icons/bs";
   import { VscLocation } from "react-icons/vsc";
-  import React from "react";
+  import React, { useEffect, useState } from "react";
   import SearchForm from "../../../components/SearchForm";
   import { useRouter } from "next/router";
   import axios from "axios";
 import Link from "next/link";
-  // import Navbar from '../../components/navbarSection/navbar';
+import Navbar from "../../../components/navbarSection/navbar";
+import LoadingScreen from "../../../components/pre_loader/loadingScreen";
   
   const HotelDetails = ({ data }) => {
+
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        setLoading(true);
+    }, []);
+
     const { query } = useRouter();
     const { id } = query;
     console.log(id)
@@ -33,6 +41,9 @@ import Link from "next/link";
     return (
       <Box>
         {/* ********************************************************************************************* */}
+{ loading?
+  <>
+      ( <Navbar />
         <Accordion allowToggle>
           <AccordionItem bg="#fff0e0" border="none" color="black" p="0.5rem">
             <Text textAlign="left" fontSize="lg" fontWeight="700">
@@ -181,6 +192,10 @@ import Link from "next/link";
               <Box>
                 <Image w="100%" h="80%" src={data.imagescr} />
               </Box>
+              <Flex cursor="pointer" mt="1.5rem" flexDirection={["column","column","row","row"]} justifyContent="space-evenly" >
+  <Image  w={{lg:"30%" ,sm:"100%"}} src={data.extraimg1} />
+  <Image  w={{lg:"30%" ,sm:"100%"}} src={data.extraimg2} />
+</Flex>
             </Box>
           </Flex>
         </Box>
@@ -266,7 +281,9 @@ import Link from "next/link";
             </Box>
           </Box>
         </Flex>
-        <hr style={{ marginBottom: "1rem", borderColor: "black" }} />
+        <hr style={{ marginBottom: "1rem", borderColor: "black" }} />)  </>:( <LoadingScreen /> )
+       
+        }
       </Box>
     );
   };
