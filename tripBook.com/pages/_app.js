@@ -34,7 +34,6 @@ function MyApp({ Component, pageProps }) {
         </GuestContextProvider>
       </AuthContextProvider>
     </ChakraProvider>):( <LoadingScreen /> )
-    
     }
   </>
   )
