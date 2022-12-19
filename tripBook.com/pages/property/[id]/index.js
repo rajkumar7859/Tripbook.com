@@ -67,15 +67,15 @@ import LoadingScreen from "../../../components/pre_loader/loadingScreen";
             separator={<ChevronRightIcon color="gray.500" />}
           >
             <BreadcrumbItem>
-              <BreadcrumbLink href="#">Home</BreadcrumbLink>
+              <BreadcrumbLink href="/">Home</BreadcrumbLink>
             </BreadcrumbItem>
   
             <BreadcrumbItem>
-              <BreadcrumbLink href="#">About</BreadcrumbLink>
+              <BreadcrumbLink href="#">List of properties</BreadcrumbLink>
             </BreadcrumbItem>
   
             <BreadcrumbItem isCurrentPage>
-              <BreadcrumbLink href="#">Contact</BreadcrumbLink>
+              <BreadcrumbLink href="#">HotelDetails</BreadcrumbLink>
             </BreadcrumbItem>
           </Breadcrumb>
         </Box>

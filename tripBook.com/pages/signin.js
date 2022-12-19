@@ -13,6 +13,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useContext, useEffect, useState } from "react";
 import { BsGithub } from "react-icons/bs";
+import Navbar from "../components/navbarSection/navbar";
 import { AuthContext } from "../context/AuthContextProvider";
 
 const Signin = () => {
@@ -45,6 +46,7 @@ const Signin = () => {
 
   return (
     <Box>
+      <Navbar />
       <Box w="90%" m="auto">
         <Heading
           mb="24px"
