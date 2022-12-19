@@ -3,7 +3,7 @@ import { PropertyModel } from "../../../models/property.model";
 
 export default async function handler(req, res) {
   const { method } = req;
-  const { city, sortBy } = req.query;
+  const { city, sortBy, filterBy } = req.query;
 
   try {
     await connect();

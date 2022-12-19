@@ -24,6 +24,8 @@ const Property = ({ data }) => {
   const router = useRouter();
   const { city } = router.query;
   const [sort, setSort] = useState("TopPicks");
+  const [filter, setFilter] = useState("");
+  const filters = ["Rating", "Reviews", "Price"]
 
   useEffect(() => {
     router.push({
@@ -43,47 +45,15 @@ const Property = ({ data }) => {
       <Flex flexDirection="column" minW="277px" gap="5px">
         <SearchForm />
 
-        {/* <Box display={["none", "none", "block", "block"]} fontSize="14px">
+        <Box display={["none", "none", "block", "block"]} fontSize="14px">
           <Box p="8px" border="1px solid #E7E7E7">
             <Text fontWeight="bold">Filter by:</Text>
           </Box>
-          <Box p="8px" border="1px solid #E7E7E7">
-            <Text fontWeight="bold">Your previous filters</Text>
-            {Array(1).fill(<FilterBox />)}
-          </Box>
           <Flex p="8px" border="1px solid #E7E7E7" flexDirection="column">
             <Text fontWeight="bold">Popular filters</Text>
-            {Array(8).fill(<FilterBox />)}
+            {filters.map((el,i) => <FilterBox type={el} key={i} />)}
           </Flex>
-          <Flex p="8px" border="1px solid #E7E7E7" flexDirection="column">
-            <Text fontWeight="bold">Health & safety</Text>
-            {Array(1).fill(<FilterBox />)}
-          </Flex>
-          <Flex p="8px" border="1px solid #E7E7E7" flexDirection="column">
-            <Text fontWeight="bold">Sustainability</Text>
-            {Array(1).fill(<FilterBox />)}
-          </Flex>
-          <Flex p="8px" border="1px solid #E7E7E7" flexDirection="column">
-            <Text fontWeight="bold">Star rating</Text>
-            {Array(6).fill(<FilterBox />)}
-          </Flex>
-          <Flex p="8px" border="1px solid #E7E7E7" flexDirection="column">
-            <Text fontWeight="bold">Distance from centre</Text>
-            {Array(3).fill(<FilterBox />)}
-          </Flex>
-          <Flex p="8px" border="1px solid #E7E7E7" flexDirection="column">
-            <Text fontWeight="bold">Fun things to do</Text>
-            {Array(26).fill(<FilterBox />)}
-          </Flex>
-          <Flex p="8px" border="1px solid #E7E7E7" flexDirection="column">
-            <Text fontWeight="bold">Entire places</Text>
-            {Array(1).fill(<FilterBox />)}
-          </Flex>
-          <Flex p="8px" border="1px solid #E7E7E7" flexDirection="column">
-            <Text fontWeight="bold">Property type</Text>
-            {Array(5).fill(<FilterBox />)}
-          </Flex>
-        </Box> */}
+        </Box>
       </Flex>
       <Flex
         w={["100%", "100%", "72%", "72%"]}
@@ -129,7 +99,6 @@ const Property = ({ data }) => {
         </Menu>
         {data.map((el) => (
 
-          <Link style={{textDecoration: "none"}} href={`/property/${el._id}`}>
           <SearchCard
             title={el.title}
             TravelText={el.TravelText}
@@ -146,7 +115,6 @@ const Property = ({ data }) => {
             id={el._id}
             city={el.city}
           />
-          </Link>
           
         ))}
       </Flex>
@@ -155,9 +123,9 @@ const Property = ({ data }) => {
 };
 
 export const getServerSideProps = async (context) => {
-  const { city, sortBy } = context.query;
+  const { city, sortBy, filterBy } = context.query;
   const res = await axios.get(
-    `http://localhost:3000/api/property?city=${city}&sortBy=${sortBy}`
+    `http://localhost:3000/api/property?city=${city}&sortBy=${sortBy}&filterBy=${filterBy}`
   );
 
   return {

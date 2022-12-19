@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { AiFillStar, AiFillLike } from "react-icons/ai";
 import { BsHeart } from "react-icons/bs";
+import NextLink from 'next/link'
 
 const SearchCard = ({
   id,
@@ -28,6 +29,7 @@ const SearchCard = ({
 }) => {
   return (
     <Flex
+    key={id}
       w="100%"
       p="15px"
       border="1px solid #C6C6C6"
@@ -40,11 +42,13 @@ const SearchCard = ({
         flexDirection={["column", "column", "column", "row", "row"]}
       >
         <Box position="relative" minW="200px" h="200px">
+        <Link as={NextLink} style={{textDecoration: "none"}} href={`/property/${id}`}>
           <Image
             w="100%"
             h="100%"
             src={imagescr}
           />
+        </Link>
           <Box w="30px" h="30px" position="absolute" top="10px" right="0px">
             <BsHeart className="image_icon" fontSize="20px" />
           </Box>
@@ -86,7 +90,7 @@ const SearchCard = ({
       </Flex>
 
       <Flex flexDirection={"column"} gap="10px">
-        <Flex fontWeight={"bold"} justifyContent={"space-between"} alignItems="center">
+        <Flex fontWeight={"bold"} justifyContent={"space-between"} alignItems="center" gap="10px">
           <Flex flexDirection={"column"}>
             <Text>{ratingStatus}</Text>
             <Text color="blackAlpha.700" fontSize={"12px"}>
@@ -94,6 +98,7 @@ const SearchCard = ({
             </Text>
           </Flex>
           <Center
+            p='5px'
             w="30px"
             h="30px"
             bg="#003580"
@@ -104,8 +109,7 @@ const SearchCard = ({
             {rating}
           </Center>
         </Flex>
-        <Button colorScheme={"blue"}>See availability</Button>
-        <Text>{price}</Text>
+        <Text fontWeight="bold">Price/day ₹ {price}</Text>
       </Flex>
     </Flex>
   );

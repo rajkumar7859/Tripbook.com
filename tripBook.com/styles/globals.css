@@ -18,6 +18,11 @@ body {
 
 .date_picker{
   width: 100%;
+  height: 100%;
+}
+
+.rs-picker-toggle{
+  height: 100%;
 }
 
 .authlinks {
