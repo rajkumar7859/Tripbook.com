@@ -47,7 +47,7 @@ const Signin = () => {
   return (
     <Box>
       <Navbar />
-      <Box w="90%" m="auto">
+      <Box w="90%" m="auto" mt="50px">
         <Heading
           mb="24px"
           as="h1"

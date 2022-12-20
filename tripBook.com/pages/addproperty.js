@@ -8,6 +8,7 @@ import {
     Stack,
     Image,
     Box,
+    useToast
   } from '@chakra-ui/react';
 import axios from 'axios';
 import Link from 'next/link';
@@ -23,6 +24,8 @@ import LoadingScreen from '../components/pre_loader/loadingScreen';
 
     const [loading, setLoading] = useState(false);
 
+  const toast = useToast();
+    
     useEffect(() => {
         setLoading(true);
     }, []);
@@ -34,10 +37,16 @@ import LoadingScreen from '../components/pre_loader/loadingScreen';
 
    const postProp = async() => {
     const res = await axios.post(`/api/property`, {title, imagescr, city});
-    // toast.notify(`Property added successfull👍` ,{
-    //   duration: 5,
-    //   type: "success"
-    // })
+    toast({
+      title: "Property added successful👍",
+      status: "success",
+      duration: 3400,
+      isClosable: true,
+      position: "top",
+    });
+    setTitle("");
+    setImagescr("");
+    setCity("");
     console.log(res.data);
    }
 

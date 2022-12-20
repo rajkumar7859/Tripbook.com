@@ -62,6 +62,31 @@ export default async function handler(req, res) {
         }
       }
 
+      if(filterBy){
+        switch(filterBy){
+        case "Price" : {
+          properties = await PropertyModel.find({$and:[{city}, {price: { $lte: 6000}}]}).sort();
+
+          break;
+        }
+
+        case "Reviews" : {
+          properties = await PropertyModel.find({$and:[{city}, {reviews: { $gte: 50}}]});
+
+          break;
+        }
+
+        case "Rating" : {
+          properties = await PropertyModel.find({$and:[{city}, {rating: { $gte: 9}}]});
+
+          break;
+        }
+
+        default: 
+        break;
+      }
+      }
+
       res.status(200).send({ properties });
     } catch (e) {
       res.status(400).send(e.message);

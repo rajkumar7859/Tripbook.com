@@ -291,7 +291,7 @@ import LoadingScreen from "../../../components/pre_loader/loadingScreen";
   export const getServerSideProps = async (context) => {
     const { id } = context.query;
   
-    const res = await axios.get(`/api/property/${id}`);
+    const res = await axios.get(`http://localhost:3000/api/property/${id}`);
     console.log(id);
     console.log(res.data);
     return {

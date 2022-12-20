@@ -1,6 +1,7 @@
 import styles from "./navbar.module.css";
 import Link from "next/link";
 import { Icon } from "@chakra-ui/icons";
+import jwt from "jsonwebtoken";
 
 import {
   IoAirplaneOutline,
@@ -18,19 +19,63 @@ import {
   Flex,
   HStack,
   Image,
+  useToast,
 } from "@chakra-ui/react";
 import DraverNav from "./draverNav";
 import { AuthContext } from "../../context/AuthContextProvider";
 import { useContext } from "react";
 import { useRouter } from "next/router";
+let TSEC = "hello";
 
 function Navbar() {
+  const toast = useToast();
   const { auth, setAuth } = useContext(AuthContext);
   const router = useRouter();
+  
 
   const SignoutReq = () => {
     setAuth({ ...auth, isAuth: "" });
     router.push("/");
+  };
+
+  const checkToken = () => {
+    if (!auth.isAuth) {
+      return router.push("/signin");
+    } else {
+      const check = jwt.verify(
+        auth.isAuth.token,
+        TSEC,
+        (err, verified) => {
+          if (err) {
+            console.log(err);
+            toast({
+              title: "Sessioned timed out!",
+              description: "Please relogin.",
+              status: "error",
+              duration: 3400,
+              isClosable: true,
+              position: "top",
+            });
+            return router.push("/signin");
+          } else {
+            if (verified.role === "dealer") {
+              console.log(verified.role);
+              return router.push("/listproperty");
+            } else {
+              router.push("/");
+              toast({
+                title: "You're not a dealer.",
+                description: "Please login as a dealer",
+                status: "warning",
+                duration: 3400,
+                isClosable: true,
+                position: "top",
+              });
+            }
+          }
+        }
+      );
+    }
   };
 
   return (
@@ -45,8 +90,7 @@ function Navbar() {
         bg="#003580"
       >
         <Box
-      
-            // border="3px solid green"
+          // border="3px solid green"
           w="90%"
           color="#262626"
           margin="auto"
@@ -55,17 +99,18 @@ function Navbar() {
         >
           <Box display="flex" justifyContent="space-between">
             <Link href="/">
-            <Box  
-            // border="2px solid green" 
-            className={styles.logosize}  >
-              <img
-                src={"/" + "applogo.png"}
-                // border="2px solid red"
+              <Box
+                // border="2px solid green"
+                className={styles.logosize}
+              >
+                <img
+                  src={"/" + "applogo.png"}
+                  // border="2px solid red"
                   width="200px"
                   height="50px"
-                alt="logo"
-              />
-            </Box>
+                  alt="logo"
+                />
+              </Box>
             </Link>
 
             <Box className={styles.stackBox}>
@@ -93,20 +138,12 @@ function Navbar() {
                   <Icon color="white" w={25} h={25} />
                 </Link>
 
-                <Link
-                  href="/listproperty"
-                  className={styles.uniqueButton}
-                  width={{
-                    base: "45%",
-                    sm: "40%",
-                    md: "25%",
-                    lg: "20%",
-                    xl: "20%",
-                    "2xl": "30%",
-                  }}
+                <Button
+                  onClick={() => checkToken()}
+                  colorScheme="blue"
                 >
                   List your property
-                </Link>
+                </Button>
 
                 {auth.isAuth ? (
                   <>
@@ -121,19 +158,11 @@ function Navbar() {
                 ) : (
                   <>
                     <Link href="/signup" className={styles.authLink}>
-                      <Button
-                    className={styles.authLink}
-                    >
-                       Register
-                    </Button>
+                      <Button className={styles.authLink}>Register</Button>
                     </Link>
 
                     <Link href="/signin" className={styles.authLink}>
-                    <Button
-                    className={styles.authLink}
-                    >
-                      Sign in
-                    </Button>
+                      <Button className={styles.authLink}>Sign in</Button>
                     </Link>
                   </>
                 )}

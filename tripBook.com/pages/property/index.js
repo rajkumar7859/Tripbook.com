@@ -31,7 +31,14 @@ const Property = ({ data }) => {
   useEffect(() => {
     router.push({
       pathname: "/property",
-      query: { city: city, sortBy: sort },
+      query: { city: city, filterBy: filter }
+    });
+  },[filter])
+
+  useEffect(() => {
+    router.push({
+      pathname: "/property",
+      query: { city: city, sortBy: sort},
     });
   }, [sort]);
 
@@ -55,7 +62,7 @@ const Property = ({ data }) => {
             <Flex p="8px" border="1px solid #E7E7E7" flexDirection="column">
               <Text fontWeight="bold">Popular filters</Text>
               {filters.map((el, i) => (
-                <FilterBox type={el} key={i} />
+                <FilterBox setFilter={setFilter} type={el} key={i} />
               ))}
             </Flex>
           </Box>
@@ -131,7 +138,7 @@ const Property = ({ data }) => {
 export const getServerSideProps = async (context) => {
   const { city, sortBy, filterBy } = context.query;
   const res = await axios.get(
-    `/api/property?city=${city}&sortBy=${sortBy}&filterBy=${filterBy}`
+    `http://localhost:3000/api/property?city=${city}&sortBy=${sortBy}&filterBy=${filterBy}`
   );
 
   return {
