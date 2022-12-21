@@ -21,7 +21,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Navbar from "../../components/navbarSection/navbar";
 
-export default function Property({ data }){
+const Property = ({ data }) => {
   const router = useRouter();
   const { city } = router.query;
   const [sort, setSort] = useState("TopPicks");
@@ -138,7 +138,7 @@ export default function Property({ data }){
 export const getServerSideProps = async (context) => {
   const { city, sortBy, filterBy } = context.query;
   const res = await axios.get(
-    `http://localhost:3000/api/property?city=${city}&sortBy=${sortBy}&filterBy=${filterBy}`
+    `tripbook/api/property?city=${city}&sortBy=${sortBy}&filterBy=${filterBy}`
   );
 
   return {
@@ -147,3 +147,5 @@ export const getServerSideProps = async (context) => {
     },
   };
 };
+
+export default Property;
