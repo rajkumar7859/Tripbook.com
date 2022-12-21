@@ -21,7 +21,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Navbar from "../../components/navbarSection/navbar";
 
-const Property = ({ data }) => {
+export default function Property({ data }){
   const router = useRouter();
   const { city } = router.query;
   const [sort, setSort] = useState("TopPicks");
@@ -147,5 +147,3 @@ export const getServerSideProps = async (context) => {
     },
   };
 };
-
-export default Property;
