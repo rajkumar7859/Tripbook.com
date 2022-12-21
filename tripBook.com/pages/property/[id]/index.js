@@ -21,10 +21,11 @@ import {
   import React, { useEffect, useState } from "react";
   import SearchForm from "../../../components/SearchForm";
   import { useRouter } from "next/router";
-  import axios from "axios";
 import Link from "next/link";
 import Navbar from "../../../components/navbarSection/navbar";
 import LoadingScreen from "../../../components/pre_loader/loadingScreen";
+import { PropertyModel } from "../../../models/property.model";
+import { connect } from "../../../db.connect";
   
   const HotelDetails = ({ data }) => {
 
@@ -290,13 +291,18 @@ import LoadingScreen from "../../../components/pre_loader/loadingScreen";
   
   export const getServerSideProps = async (context) => {
     const { id } = context.query;
-  
-    const res = await axios.get(`http://localhost:3000/api/property/${id}`);
-    console.log(id);
-    console.log(res.data);
+ 
+    try {
+      await connect();
+    } catch (e) {
+      console.log(e);
+    }
+
+    const property = await PropertyModel.findOne({ _id: id });
+
     return {
       props: {
-        data: res.data.property,
+        data: JSON.parse(JSON.stringify(property)),
       },
     };
   };

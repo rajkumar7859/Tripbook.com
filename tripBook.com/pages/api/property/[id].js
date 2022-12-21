@@ -11,15 +11,6 @@ export default async function handler(req, res) {
     console.log(e);
   }
 
-  if (method === "GET") {
-    try {
-      const property = await PropertyModel.findOne({ _id: id });
-      res.status(200).send({ property });
-    } catch (e) {
-      res.status(400).send(e.message);
-    }
-  }
-
   if (method === "DELETE") {
     try {
       const property = await PropertyModel.findOneAndDelete({ _id: id });

@@ -6,18 +6,12 @@ import {
   Divider,
   Stack,
   Image,
-  Radio,
-  RadioGroup,
-  FormControl,
   FormLabel,
-  FormErrorMessage,
-  FormHelperText,
   Input,
   Select,
   Textarea,
   Button,
   SimpleGrid,
-  Grid,
   Center,
   useToast
 } from "@chakra-ui/react";
@@ -28,12 +22,13 @@ import { MdOutlineRestaurant } from "react-icons/md";
 import { MdLocalAirport } from "react-icons/md";
 import { useRouter } from "next/router";
 import { FaSwimmingPool } from "react-icons/fa";
-import axios from "axios";
 import Navbar from "../../../components/navbarSection/navbar";
 import { useContext, useEffect, useState } from "react";
 import { GuestContext } from "../../../context/GuestContext";
 import Link from "next/link";
 import LoadingScreen from "../../../components/pre_loader/loadingScreen";
+import { PropertyModel } from "../../../models/property.model";
+import { connect } from "../../../db.connect";
 export default function Info({ data }) {
   const { date, adult, childrens, room } = useContext(GuestContext);
   let CheckIn = date[0].toString().split(" ");
@@ -439,13 +434,18 @@ export default function Info({ data }) {
 
 export const getServerSideProps = async (context) => {
   const { id } = context.query;
-
-  const res = await axios.get(`http://localhost:3000/api/property/${id}`);
-  console.log(id);
-  console.log(res.data);
-  return {
-    props: {
-      data: res.data.property,
+ 
+    try {
+      await connect();
+    } catch (e) {
+      console.log(e);
     }
-  }
+
+    const property = await PropertyModel.findOne({ _id: id });
+
+    return {
+      props: {
+        data: JSON.parse(JSON.stringify(property)),
+      },
+    };
 }
