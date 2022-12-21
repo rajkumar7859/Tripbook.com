@@ -20,6 +20,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Navbar from "../../components/navbarSection/navbar";
+import { connect } from "../../db.connect";
+import { PropertyModel } from "../../models/property.model";
 
 const Property = ({ data }) => {
   const router = useRouter();
@@ -137,13 +139,69 @@ const Property = ({ data }) => {
 
 export const getServerSideProps = async (context) => {
   const { city, sortBy, filterBy } = context.query;
-  const res = await axios.get(
-    `tripbook/api/property?city=${city}&sortBy=${sortBy}&filterBy=${filterBy}`
-  );
+  // const res = await axios.get(
+  //   `/api/property?city=${city}&sortBy=${sortBy}&filterBy=${filterBy}`
+  // );
+
+  try {
+    await connect();
+  } catch (e) {
+    console.log(e);
+  }
+
+  let properties = await PropertyModel.find({ city });
+
+  if (sortBy) {
+    switch (sortBy) {
+      case "TopReviewed":
+      case "TopPicks":
+         {
+        properties = await PropertyModel.find({ city }).sort({
+          reviews: -1,
+        });
+
+        break;
+      }
+
+      case "HighestRating": {
+        properties = await PropertyModel.find({ city }).sort({
+          rating: -1,
+        });
+
+        break;
+      }
+
+      case "LowestRating": {
+        properties = await PropertyModel.find({ city }).sort({ rating: 1 });
+
+        break;
+      }
+
+      case "LowPrice": {
+        properties = await PropertyModel.find({ city }).sort({
+          price: 1,
+        });
+
+        break;
+      }
+
+      case "HighPrice": {
+        properties = await PropertyModel.find({ city }).sort({
+          price: -1,
+        });
+
+        break;
+      }
+
+      default:
+        break;
+    }
+  }
+
 
   return {
     props: {
-      data: res.data.properties,
+      data: JSON.parse(JSON.stringify(properties)),
     },
   };
 };

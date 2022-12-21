@@ -1,5 +1,11 @@
+import axios from "axios";
 import { connect } from "../../../db.connect";
 import { PropertyModel } from "../../../models/property.model";
+
+// export async function getData(city,sortBy,filterBy){
+//   const res = await axios.get(`/api/property?city=${city}&sortBy=${sortBy}&filterBy=${filterBy}`);
+//   return res.data.properties;
+// }
 
 export default async function handler(req, res) {
   const { method } = req;
